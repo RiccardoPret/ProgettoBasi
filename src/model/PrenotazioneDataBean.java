@@ -3,7 +3,7 @@ package model;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-public class PrenotazioneDataBean {
+public class PrenotazioneDataBean extends DataBean{
 	private int id,cliente;
 	private Date data_inizio,data_fine, tipo_pagamento;
 	private BigDecimal importo;

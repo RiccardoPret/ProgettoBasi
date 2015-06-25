@@ -34,13 +34,13 @@ WHERE NG.posto_spiaggia_stabilimento=? AND NG.posto_spiaggia_numero=? AND NG.dat
 
 --altri liberi nello stesso periodo
 --CI VA POSTOSPIAGGIA
-posti_liberi_periodo=}SELECT NG.posto_spiaggia_stabilimento, NG.posto_spiaggia_numero
-FROM NoleggioGiornaliero NG
+posti_liberi_periodo=}SELECT PS.stabilimento, PS.numero
+FROM PostoSpiaggia PS
 WHERE NOT EXISTS(
 					SELECT 1
-					FROM NoleggioGiornaliero NG2
-					WHERE NG2.data>=? AND NG2.data<=?
-						AND NG2.posto_spiaggia_stabilimento=NG.posto_spiaggia_stabilimento AND NG2.posto_spiaggia_numero=NG.posto_spiaggia_numero
+					FROM NoleggioGiornaliero NG
+					WHERE NG.data>=? AND NG.data<=?
+						AND NG.posto_spiaggia_stabilimento=PS.stabilimento AND NG.posto_spiaggia_numero=PS.numero
 				);
 
 --insert prenotazione

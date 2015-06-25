@@ -2,7 +2,7 @@ package model;
 
 import java.math.BigDecimal;
 
-public class PrezzoFilaDataBean {
+public class PrezzoFilaDataBean extends DataBean{
 	private String periodo_nome;
 	private int fila;
 	private BigDecimal prezzo;

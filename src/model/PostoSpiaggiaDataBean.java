@@ -1,6 +1,6 @@
 package model;
 
-public class PostoSpiaggiaDataBean {
+public class PostoSpiaggiaDataBean extends DataBean{
 	private int numero,fila,numero_sdraio;
 	private String stabilimento;
 	

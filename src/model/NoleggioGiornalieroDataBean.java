@@ -2,7 +2,7 @@ package model;
 
 import java.sql.Date;
 
-public class NoleggioGiornalieroDataBean {
+public class NoleggioGiornalieroDataBean extends DataBean{
 	private Date data;
 	private int posto_spiaggia_numero, prenotazione;
 	private String posto_spiaggia_stabilimento;

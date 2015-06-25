@@ -1,6 +1,6 @@
 package model;
 
-public class ClienteDataBean {
+public class ClienteDataBean extends DataBean{
 	private String nome,cognome,residenza,documento_tipo,documento_ente,documento_numero,email,login,password;
 
 	public ClienteDataBean(String nome, String cognome, String residenza,

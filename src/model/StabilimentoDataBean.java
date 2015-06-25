@@ -3,7 +3,7 @@ package model;
 import java.sql.Date;
 import java.sql.Time;
 
-public class StabilimentoDataBean {
+public class StabilimentoDataBean extends DataBean{
 	
 	private String nome, localita,via,civico,citta,responsabile,telefono;
 	private Date data_apertura,data_chiusura;
