@@ -15,7 +15,7 @@ CREATE TABLE Stabilimento (
 	ha_salagiochi BOOLEAN NOT NULL,
 	ha_volley BOOLEAN NOT NULL,
 	ha_bocce BOOLEAN NOT NULL,
-	ha_ristorante BOOLEAN NOT NULL
+	ha_ristorante BOOLEAN NOT NULL,
 	h_apertura TIME,
 	h_chiusura TIME,
 	specialita TEXT,
@@ -57,7 +57,7 @@ CREATE TABLE PP (
 	posto_spiaggia_numero INTEGER,
 	periodo_nome VARCHAR(30) REFERENCES Periodo(nome)
 								ON DELETE CASCADE
-								ON UPDATE CASCADE,,
+								ON UPDATE CASCADE,
 	prezzo DECIMAL(6,2) NOT NULL,
 	FOREIGN KEY(posto_spiaggia_stabilimento,posto_spiaggia_numero) REFERENCES PostoSpiaggia(stabilimento,numero),
 	PRIMARY KEY(posto_spiaggia_stabilimento,posto_spiaggia_numero)
@@ -68,7 +68,7 @@ CREATE TABLE Cliente (
 	nome VARCHAR(30) NOT NULL,
 	cognome VARCHAR(30) NOT NULL,
 	residenza VARCHAR(50) NOT NULL,
-	documento_tipo VARCHAR(30) NOT NULL CHECK(documento_tipo IN ('cartaidentita','passaporto'),
+	documento_tipo VARCHAR(30) NOT NULL CHECK(documento_tipo IN ('cartaidentita','passaporto')),
 	documento_ente VARCHAR(50) NOT NULL,
 	documento_numero VARCHAR(30) NOT NULL,
 	email VARCHAR(40) NOT NULL UNIQUE,
@@ -78,9 +78,9 @@ CREATE TABLE Cliente (
 
 CREATE TABLE Prenotazione(
 	id SERIAL PRIMARY KEY NOT NULL,
-	cliente INTEGER REFERENCES Cliente(codice) NOT NULL
+	cliente INTEGER NOT NULL REFERENCES Cliente(codice)
 						ON DELETE CASCADE
-						ON UPDATE CASCADE,,
+						ON UPDATE CASCADE,
 	data_inizio DATE NOT NULL,
 	data_fine DATE NOT NULL,
 	importo DECIMAL(6,2),
@@ -93,9 +93,9 @@ CREATE TABLE NoleggioGiornaliero(
 	posto_spiaggia_stabilimento VARCHAR(30),
 	prenotazione INTEGER NOT NULL REFERENCES Prenotazione(id)
 										ON DELETE CASCADE
-										ON UPDATE CASCADE,,
+										ON UPDATE CASCADE,
 	FOREIGN KEY(posto_spiaggia_stabilimento,posto_spiaggia_numero) REFERENCES PostoSpiaggia(stabilimento,numero)	
-																		ON DELETE CASCADE
-																		ON UPDATE CASCADE,
+									ON DELETE CASCADE
+									ON UPDATE CASCADE,
 	PRIMARY KEY(data, posto_spiaggia_numero,posto_spiaggia_stabilimento)
 	);
