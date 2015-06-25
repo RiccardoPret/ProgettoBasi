@@ -1,9 +1,9 @@
 INSERT INTO Stabilimento VALUES
-	('Bagno Maria','Casalecchio','via lungomare','13','Rimini','Mario Rossi','0451234567','02/05/2015','30/09/2015',false,false,false,false,NULL,NULL,NULL),
-	('Bagno Sapone','Casalecchio','via lungomare','14','Rimini','Luigi Sapone','0451234568','26/04/2015','15/09/2015',true,false,true,true,'11:00','22:30','Sogliola impanata')
-	('Stabilimento Gold','Cesenatico','via garibaldi','42','Forlì-Cesena','Alessandro Verdi','0454561234','15/05/2015','15/10/2015',true,true,true,false,NULL,NULL,NULL)
-	('Stabilimento Silver','Cesenatico','via garibaldi','12','Forlì-Cesena','Alessandro Verdi','0454561235','15/05/2015','15/10/2015',true,true,false,false,NULL,NULL,NULL)
-	('Stabilimento Bronze','Cesenatico','via garibaldi','113B','Forlì-Cesena','Alessandro Verdi','0454561236','15/05/2015','15/10/2015',true,false,false,false,NULL,NULL,NULL)
+	('Bagno Maria','Casalecchio','via lungomare','13','Rimini','Mario Rossi','0451234567','02/05/2015','30/09/2015',false,false,false,false,NULL,NULL,NULL)
+	,('Bagno Sapone','Casalecchio','via lungomare','14','Rimini','Luigi Sapone','0451234568','26/04/2015','15/09/2015',true,false,true,true,'11:00','22:30','Sogliola impanata')
+	,('Stabilimento Gold','Cesenatico','via garibaldi','42','Forlì-Cesena','Alessandro Verdi','0454561234','15/05/2015','15/10/2015',true,true,true,false,NULL,NULL,NULL)
+	,('Stabilimento Silver','Cesenatico','via garibaldi','12','Forlì-Cesena','Alessandro Verdi','0454561235','15/05/2015','15/10/2015',true,true,false,false,NULL,NULL,NULL)
+	,('Stabilimento Bronze','Cesenatico','via garibaldi','113B','Forlì-Cesena','Alessandro Verdi','0454561236','15/05/2015','15/10/2015',true,false,false,false,NULL,NULL,NULL)
 	;
 	
 --generati con script python (non sono così folle da scriverli a mano)
