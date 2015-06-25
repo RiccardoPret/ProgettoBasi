@@ -49,7 +49,7 @@ CREATE TABLE PostoSpiaggia (
 CREATE TABLE Periodo (
 	nome VARCHAR(30) PRIMARY KEY NOT NULL,
 	data_inizio DATE NOT NULL,
-	data_fine DATE NOT NULL CHECK(data_fine>data_inizio)
+	data_fine DATE NOT NULL CHECK(data_fine>=data_inizio)
 	);
 	
 CREATE TABLE PP (
@@ -60,7 +60,7 @@ CREATE TABLE PP (
 								ON UPDATE CASCADE,
 	prezzo DECIMAL(6,2) NOT NULL,
 	FOREIGN KEY(posto_spiaggia_stabilimento,posto_spiaggia_numero) REFERENCES PostoSpiaggia(stabilimento,numero),
-	PRIMARY KEY(posto_spiaggia_stabilimento,posto_spiaggia_numero)
+	PRIMARY KEY(posto_spiaggia_stabilimento,posto_spiaggia_numero,periodo_nome)
 	);
 
 CREATE TABLE Cliente (
@@ -84,7 +84,7 @@ CREATE TABLE Prenotazione(
 	data_inizio DATE NOT NULL,
 	data_fine DATE NOT NULL,
 	importo DECIMAL(6,2),
-	tipo_pagamento VARCHAR(20)
+	tipo_pagamento VARCHAR(20) CHECK(tipo_pagamento IN ('bancomat','contanti','cartacredito'))
 	);
 
 CREATE TABLE NoleggioGiornaliero(
