@@ -19,6 +19,7 @@ import javax.security.auth.callback.UnsupportedCallbackException;
 import javax.security.auth.login.LoginException;
 import javax.security.auth.spi.LoginModule;
 
+import util.ReservedReader;
 
 public class MyLoginModule implements LoginModule {
 
@@ -83,16 +84,17 @@ public class MyLoginModule implements LoginModule {
 	}
 
 	private Connection getConnection() throws LoginException {
-		String dBUser = "eiwpodpcjchayi";
-		String dBPassword = "Ij5zl1Sj6EVkm0xcC1qKgj8NsP";
-		String dBUrl = "jdbc:postgresql://ec2-54-247-79-142.eu-west-1.compute.amazonaws.com/de6rbt0qvpr0u2?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
-		String dBDriver = "org.postgresql.Driver";
-
+		ReservedReader r= new ReservedReader(MyLoginModule.class, "credential.txt", "=>");
+		System.out.println("*********" + r.getValue("url")
+				+ r.getValue("username") + r.getValue("password"));
 		Connection con = null;
 		try {
 			// loading driver
-			Class.forName(dBDriver).newInstance();
-			con = DriverManager.getConnection(dBUrl, dBUser, dBPassword);
+
+			Class.forName(r.getValue("driver").replace(" ", "")).newInstance();
+			con = DriverManager.getConnection(r.getValue("url")
+					.replace(" ", ""), r.getValue("username").replace(" ", ""),
+					r.getValue("password").replace(" ", ""));
 		} catch (Exception e) {
 			// LOGGER.error("Error when creating database connection" + e);
 			e.printStackTrace();
@@ -101,7 +103,7 @@ public class MyLoginModule implements LoginModule {
 	}
 
 	private boolean isValidUser() {
-		String sql = "select username from user_list where user_list.username=? and user_list.password=?";
+		String sql = "select login from Cliente where Cliente.login=? and Cliente.password=?";
 		Connection con = null;
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
@@ -145,105 +147,70 @@ public class MyLoginModule implements LoginModule {
 	public boolean commit() throws LoginException {
 
 		if (loginSucceeded == false) {
-            return false;
-        } else { 
-            userPrincipal = new UserPrincipal(username);
-            if (!subject.getPrincipals().contains(userPrincipal)) {
-                subject.getPrincipals().add(userPrincipal);
-                //LOGGER.debug("User principal added:" + userPrincipal);
-            }
-      
-            //populate subject with roles.
-            List<String> roles = getRoles();
-            for (String role: roles) {
-                RolePrincipal rolePrincipal = new RolePrincipal(role);
-                if (!subject.getPrincipals().contains(rolePrincipal)) {
-                    subject.getPrincipals().add(rolePrincipal); 
-                    //LOGGER.debug("Role principal added: " + rolePrincipal);
-                }
-            }
-      
-            commitSucceeded = true;
-            //LOGGER.info("Login subject were successfully populated with principals and roles"); 
-            return true;
-       }
+			return false;
+		} else {
+			userPrincipal = new UserPrincipal(username);
+			if (!subject.getPrincipals().contains(userPrincipal)) {
+				subject.getPrincipals().add(userPrincipal);
+				// LOGGER.debug("User principal added:" + userPrincipal);
+			}
+
+			// populate subject with roles.
+			List<String> roles = getRoles();
+			for (String role : roles) {
+				RolePrincipal rolePrincipal = new RolePrincipal(role);
+				if (!subject.getPrincipals().contains(rolePrincipal)) {
+					subject.getPrincipals().add(rolePrincipal);
+					// LOGGER.debug("Role principal added: " + rolePrincipal);
+				}
+			}
+
+			commitSucceeded = true;
+			// LOGGER.info("Login subject were successfully populated with principals and roles");
+			return true;
+		}
 
 	}
-	
-	private List<String> getRoles() { 
-		  
-	      Connection con = null;
-	      ResultSet rs = null;
-	      PreparedStatement stmt = null;
-	  
-	      List<String> roleList = new ArrayList<String>(); 
-	  
-	      try {
-	          con = getConnection();
-	          String sql = "select user_role.role from user_list, user_role where user_list.username=user_role.username and user_list.username=?";
-	          stmt = con.prepareStatement(sql);
-	          stmt.setString(1, username);
-	   
-	          rs = stmt.executeQuery();
-	   
-	          if (rs.next()) { 
-	              roleList.add(rs.getString("role")); 
-	          }
-	      } catch (Exception e) {
-	    	  //LOGGER.error("Error when loading user from the database " + e);
-	          e.printStackTrace();
-	      } finally {
-	           try {
-	               rs.close();
-	           } catch (SQLException e) {
-	        	   //LOGGER.error("Error when closing result set." + e);
-	           }
-	           try {
-	               stmt.close();
-	           } catch (SQLException e) {
-	        	   //LOGGER.error("Error when closing statement." + e);
-	           }
-	           try {
-	               con.close();
-	           } catch (SQLException e) {
-	               //LOGGER.error("Error when closing connection." + e);
-	           }
-	       }
-	       return roleList;
-	 }
+
+	private List<String> getRoles() {
+		List<String> roleList = new ArrayList<String>();
+		roleList.add("client");
+		
+		return roleList;
+	}
 
 	@Override
 	public boolean abort() throws LoginException {
 		if (this.loginSucceeded == false) {
-	          return false;
-	      } else if (this.loginSucceeded == true && commitSucceeded == false) {
-	    	  this.loginSucceeded = false;
-	          username = null;
-	          if (password != null) {
-	              password = null;
-	          }
-	          userPrincipal = null;    
-	      } else {
-	          logout();
-	      }
-	      return true;
+			return false;
+		} else if (this.loginSucceeded == true && commitSucceeded == false) {
+			this.loginSucceeded = false;
+			username = null;
+			if (password != null) {
+				password = null;
+			}
+			userPrincipal = null;
+		} else {
+			logout();
+		}
+		return true;
 	}
 
 	@Override
 	public boolean logout() throws LoginException {
 		subject.getPrincipals().remove(userPrincipal);
 		subject.getPrincipals().remove(rolePrincipal);
-        
-		loginSucceeded = false;
-        commitSucceeded=loginSucceeded;
-        
-        username = null;
-        password = null;
 
-        userPrincipal = null;
-        rolePrincipal = null;
-        
-        return true;
+		loginSucceeded = false;
+		commitSucceeded = loginSucceeded;
+
+		username = null;
+		password = null;
+
+		userPrincipal = null;
+		rolePrincipal = null;
+
+		return true;
 	}
 
 }
