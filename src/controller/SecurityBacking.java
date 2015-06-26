@@ -9,25 +9,35 @@ import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean
 @ViewScoped
-public class SecurityBacking implements Serializable{
-	
-	public String invalidateSession(){
-		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-		return "/client/index.jsf?faces-redirect=true";
+public class SecurityBacking implements Serializable {
+
+	public String invalidateSession() {
+		FacesContext.getCurrentInstance().getExternalContext()
+				.invalidateSession();
+		return "/index.jsf?faces-redirect=true";
 	}
-	
-	public String getWelcome(){
+
+	public boolean isLoggedIn() {
 		FacesContext context = FacesContext.getCurrentInstance();
-		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
-		
-		return "Buongiorno "+request.getUserPrincipal().getName();
+		HttpServletRequest request = (HttpServletRequest) context
+				.getExternalContext().getRequest();
+		return request.getUserPrincipal() != null;
 	}
-	
+
+	public String getWelcome() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context
+				.getExternalContext().getRequest();
+
+		return request.getUserPrincipal().getName();
+	}
+
 	public String logout() {
 		FacesContext context = FacesContext.getCurrentInstance();
-		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		HttpServletRequest request = (HttpServletRequest) context
+				.getExternalContext().getRequest();
 
 		request.getSession().invalidate();
-		return "/client/index.jsf?faces-redirect=true";
+		return "/index.jsf?faces-redirect=true";
 	}
 }

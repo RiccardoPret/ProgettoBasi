@@ -1,4 +1,5 @@
 web/WEB-INF/classes/*
+!web/WEB-INF/classes/lang/*
 .settings/*
 .classpath
 RemoteSystemsTempFiles/*

@@ -8,8 +8,8 @@
 <h:head>Client Page</h:head>
 <h:body>
 
-	<ui:composition template="/templates/layout_client.jsf">
-		<ui:define name="windowTitle">Home cliente</ui:define>
+	<ui:composition template="/templates/layout.jsf">
+		<ui:define name="windowTitle">Home</ui:define>
 
 		<ui:define name="content">
 
