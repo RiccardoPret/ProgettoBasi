@@ -23,8 +23,8 @@ import util.InsertHelper;
 @SessionScoped
 public class EsitoView implements Serializable{
 	
-	@ManagedProperty(value = "auth")
-	private SecurityBacking auth;
+	@ManagedProperty(value = "securityBacking")
+	private SecurityBacking securityBacking;
 	
 	private boolean esito;
 	private List<PostoSpiaggiaDataBean> alternative;
@@ -48,7 +48,7 @@ public class EsitoView implements Serializable{
 	public void setEsito(Date data_inizio, Date data_fine,String stabName,int posto){
 		int cliente=0;
 		//estraggo l'id dell'utente
-		String username=this.auth.getUsername();
+		String username=this.securityBacking.getUsername();
 		ClienteByUsernameStrategy cbus=new ClienteByUsernameStrategy(username);
 		try {
 			List<DataBean> list=cbus.getSelectedBeans();
@@ -99,12 +99,14 @@ public class EsitoView implements Serializable{
 		return alternative;
 	}
 
-	public SecurityBacking getAuth() {
-		return auth;
+	public SecurityBacking getSecurityBacking() {
+		return securityBacking;
 	}
 
-	public void setAuth(SecurityBacking auth) {
-		this.auth = auth;
+	public void setSecurityBacking(SecurityBacking securityBacking) {
+		this.securityBacking = securityBacking;
 	}
+
+	
 	
 }

@@ -8,7 +8,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
-@ManagedBean(name = "auth")
+@ManagedBean
 @SessionScoped
 public class SecurityBacking implements Serializable{
 	
