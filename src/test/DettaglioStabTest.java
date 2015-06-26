@@ -30,10 +30,10 @@ public class DettaglioStabTest {
 			e.printStackTrace();
 		}
 		String qText=Query.getInstance().getQuery("n_posti_stab");
-		DatabaseDriver.getInstance().openConnection();
+		DatabaseDriver dbd=new DatabaseDriver();
+		dbd.openConnection();
 		try {
-			PreparedStatement ps=DatabaseDriver.getInstance()
-					.getOpenedConnection().prepareStatement(qText);
+			PreparedStatement ps=dbd.getOpenedConnection().prepareStatement(qText);
 			ps.setObject(1, stab);
 			ResultSet rs=ps.executeQuery();
 			if(rs.next()){

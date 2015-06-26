@@ -3,9 +3,11 @@ package model;
 public class ClienteDataBean extends DataBean{
 	private String nome,cognome,residenza,documento_tipo,documento_ente,documento_numero,email,login,password;
 
+	int id;
+	
 	public ClienteDataBean(String nome, String cognome, String residenza,
 			String documento_tipo, String documento_ente,
-			String documento_numero, String email, String login, String password) {
+			String documento_numero, String email, String login, String password,int id) {
 		super();
 		this.nome = nome;
 		this.cognome = cognome;
@@ -16,6 +18,7 @@ public class ClienteDataBean extends DataBean{
 		this.email = email;
 		this.login = login;
 		this.password = password;
+		this.id=id;
 	}
 
 	public ClienteDataBean() {
@@ -94,13 +97,22 @@ public class ClienteDataBean extends DataBean{
 		this.password = password;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	@Override
 	public String toString() {
 		return "ClienteDataBean [nome=" + nome + ", cognome=" + cognome
 				+ ", residenza=" + residenza + ", documento_tipo="
 				+ documento_tipo + ", documento_ente=" + documento_ente
 				+ ", documento_numero=" + documento_numero + ", email=" + email
-				+ ", login=" + login + ", password=" + password + "]";
+				+ ", login=" + login + ", password=" + password + ", id=" + id
+				+ "]";
 	}
 
 	@Override
@@ -116,6 +128,7 @@ public class ClienteDataBean extends DataBean{
 		result = prime * result
 				+ ((documento_tipo == null) ? 0 : documento_tipo.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + id;
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result
@@ -159,6 +172,8 @@ public class ClienteDataBean extends DataBean{
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
+		if (id != other.id)
+			return false;
 		if (login == null) {
 			if (other.login != null)
 				return false;
@@ -181,4 +196,6 @@ public class ClienteDataBean extends DataBean{
 			return false;
 		return true;
 	}
+
+	
 }
