@@ -25,7 +25,7 @@ public class DatabaseDriver {
 	private static ReservedReader DBCredential; // Evito le credenziali
 												// hard-coded. Esse sono in un
 												// file inaccessibile
-	private static String dbFile = "credential_local.txt";
+	private static String dbFile = "credential.txt";
 	private static String separator = "=>";
 
 	private DatabaseDriver() {
