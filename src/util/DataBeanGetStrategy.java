@@ -26,8 +26,9 @@ public abstract class DataBeanGetStrategy {
 		List<DataBean> toRet=new ArrayList<DataBean>();
 		
 		String qText=Query.getInstance().getQuery(this.queryName);
-		DatabaseDriver.getInstance().openConnection();
-		PreparedStatement ps=DatabaseDriver.getInstance().getOpenedConnection().prepareStatement(qText);
+		DatabaseDriver dbd=new DatabaseDriver();
+		dbd.openConnection();
+		PreparedStatement ps=dbd.getOpenedConnection().prepareStatement(qText);
 		for(int i=0;i<this.params.size();i++){
 			ps.setObject(i+1, this.params.get(i));
 		}
@@ -37,7 +38,7 @@ public abstract class DataBeanGetStrategy {
 		}
 		rs.getStatement().close();
 		rs.close();
-		DatabaseDriver.getInstance().closeConnection();
+		dbd.closeConnection();
 		return toRet;
 	}
 

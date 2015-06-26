@@ -12,10 +12,11 @@ public class InsertHelper {
 	public static boolean insertUser(String nome,String cognome, String residenza, String tipoDoc
 			,String enteDoc,String numDoc,String email, String user,String password){
 		String qText=Query.getInstance().getQuery("new_utente");
-		DatabaseDriver.getInstance().openConnection();
+		DatabaseDriver dbd=new DatabaseDriver();
+		dbd.openConnection();
 		PreparedStatement ps;
 		try {
-			ps = DatabaseDriver.getInstance().getOpenedConnection().prepareStatement(qText);
+			ps = dbd.getOpenedConnection().prepareStatement(qText);
 			ps.setObject(1, nome);
 			ps.setObject(2, cognome);
 			ps.setObject(3, residenza);
@@ -29,22 +30,22 @@ public class InsertHelper {
 			ps.execute();
 			ps.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 			return false;
 		}
-		DatabaseDriver.getInstance().closeConnection();
+		dbd.closeConnection();
 		return true;
 	}
 	
 	public static boolean insertPrenotazione(int cliente,Date data_inizio, Date data_fine
-							,String stabName,int posto  ){
+							,String stabName,int posto){
 		String qText=Query.getInstance().getQuery("new_prenota");
-		DatabaseDriver.getInstance().openConnection();
+		DatabaseDriver dbd=new DatabaseDriver();
+		dbd.openConnection();
 		PreparedStatement ps;
 		ResultSet rs;
 		try {
-			ps = DatabaseDriver.getInstance().getOpenedConnection()
+			ps = dbd.getOpenedConnection()
 					.prepareStatement(qText, Statement.RETURN_GENERATED_KEYS);
 			ps.setObject(1,cliente);
 			ps.setObject(2,new java.sql.Date(data_inizio.getTime()));
@@ -55,7 +56,7 @@ public class InsertHelper {
 				int codPrenotazione=rs.getInt(1);
 				ps.close();
 				rs.close();
-				DatabaseDriver.getInstance().closeConnection();
+				dbd.closeConnection();
 				
 				Date data_cursor=new Date(data_inizio.getTime());
 				while(data_cursor.compareTo(data_fine)<=0 
@@ -72,7 +73,7 @@ public class InsertHelper {
 				System.out.println("PRENOTAZIONE ERRATA");
 				ps.close();
 				rs.close();
-				DatabaseDriver.getInstance().closeConnection();
+				dbd.closeConnection();
 				return false;
 			}
 			
@@ -85,9 +86,10 @@ public class InsertHelper {
 	
 	public static boolean insertNoleggioGiornaliero(Date data	,String stabName,int posto,int idPren){
 		String qText2=Query.getInstance().getQuery("new_prenota_singolo");
+		DatabaseDriver dbd=new DatabaseDriver();
 		try {
-			DatabaseDriver.getInstance().openConnection();
-			PreparedStatement ps = DatabaseDriver.getInstance().getOpenedConnection()
+			dbd.openConnection();
+			PreparedStatement ps = dbd.getOpenedConnection()
 					.prepareStatement(qText2);
 			ps.setObject(1, new java.sql.Date(data.getTime()));
 			ps.setObject(2, posto);
@@ -95,14 +97,14 @@ public class InsertHelper {
 			ps.setObject(4, idPren);
 			ps.execute();
 			ps.close();
-			DatabaseDriver.getInstance().closeConnection();
+			dbd.closeConnection();
 			return true;
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		DatabaseDriver.getInstance().closeConnection();
+		dbd.closeConnection();
 		return false;
 	}
 	

@@ -19,7 +19,6 @@ import org.postgresql.geometric.PGpoint;
  */
 
 public class DatabaseDriver {
-	private static DatabaseDriver instance;
 	private Connection connection;
 
 	private static ReservedReader DBCredential; // Evito le credenziali
@@ -28,30 +27,10 @@ public class DatabaseDriver {
 	private static String dbFile = "credential.txt";
 	private static String separator = "=>";
 
-	private DatabaseDriver() {
+	public DatabaseDriver() {
 		super();
-	}
-
-	public static DatabaseDriver getInstance() {
-		if (instance == null) {
-			instance = new DatabaseDriver();
-			DBCredential = new ReservedReader(MyLoginModule.class, dbFile, separator);
-
-			System.out.println("Inizio Credenziali lette da DatabaseDriver***************");
-			System.out.println(DBCredential.getValue("driver"));
-			System.out.println(DBCredential.getValue("url"));
-			System.out.println(DBCredential.getValue("username"));
-			System.out.println(DBCredential.getValue("password"));
-			System.out.println("Fine Credenziali lette da DatabaseDriver***************");
-		}
-		return instance;
-	}
-
-	private void checkInstantiation() {
-		if (instance == null) {
-			System.out
-					.println("Non aprire connessioni senza prima avere istanziato l'oggetto!");
-			instance = new DatabaseDriver();
+		if(DBCredential==null){
+			 DBCredential=new ReservedReader(MyLoginModule.class, dbFile, separator);
 		}
 	}
 
@@ -61,7 +40,6 @@ public class DatabaseDriver {
 	 * aprire e chiudere la connessione. Questo metodo, apre la connessione e poi la ritorna
 	 */
 	public void openConnection() {
-		checkInstantiation();
 		try {
 			Driver myDriver = (Driver) Class.forName(
 					DBCredential.getValue("driver").replace(" ", "")).newInstance();

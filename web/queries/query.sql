@@ -54,3 +54,7 @@ new_prenota_singolo=}INSERT INTO NoleggioGiornaliero VALUES
 --	('data_inizio+1','numeroposto','stabilimento','IDPRENOTAZIONE'),
 --	...
 --	('data_fine','numeroposto','stabilimento','IDPRENOTAZIONE');
+
+get_by_username=}SELECT *
+FROM Cliente C
+WHERE C.login=?;

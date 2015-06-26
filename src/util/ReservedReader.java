@@ -52,7 +52,7 @@ public class ReservedReader {
 				} else {
 					qText += line+" ";
 					if (line.contains(";")) {
-						System.out.println(qText);
+						//System.out.println(qText);
 						map.put(qName, qText.substring(0, qText.length()-2));
 						qName="";
 					}
@@ -98,7 +98,7 @@ public class ReservedReader {
 		while (!(path = path.getParent()).getFileName().toString()
 				.equals("WEB-INF"))
 			;
-		System.out.println(path.toString() + "/queries/" + this.fileName);
+		//System.out.println(path.toString() + "/queries/" + this.fileName);
 		return path.getParent().toString() + "/queries/" + this.fileName;
 	}
 
