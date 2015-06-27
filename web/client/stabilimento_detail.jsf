@@ -60,7 +60,24 @@
 					</h:panelGroup>
 
 					<h3>Prenota il tuo posto spiaggia</h3>
-					
+					<table>
+						<tr>
+							<td>Data inizio:</td>
+							<td><h:inputText value="#{stab_detail.data_inizio}" id="data_i" /></td>
+						</tr>
+						<tr>
+							<td>Data fine:</td>
+							<td><h:inputText value="#{stab_detail.data_fine}" id="data_f" /></td>
+						</tr>
+						<tr>
+							<td>Numero Posto spiaggia:</td>
+							<td><h:inputText value="#{stab_detail.postoDaPrenotare}" id="num_posto" /></td>
+						</tr>
+					</table>
+					<p>
+					<h:commandButton value="Prenota" class="button" action="#{stab_detail.goToEsito()}"></h:commandButton>
+					</p>
+
 				</div>
 
 			</div>
