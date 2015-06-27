@@ -376,6 +376,12 @@
 		color: rgba(0,0,0,0.6);
 		margin-left: 600px;
 	}
+	
+	#dettaglio_stab h3
+	{
+		margin-left:0px;
+		text-align: center;
+	}
 
 /*********************************************************************************/
 /* Content                                                                       */

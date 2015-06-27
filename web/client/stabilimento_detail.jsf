@@ -59,6 +59,10 @@
 								<f:facet name="header">Prezzo</f:facet>
 		                				#{prezzofila.prezzo}
 		              				</h:column>
+		              		<h:column>
+								<f:facet name="header">Posti</f:facet>
+		                				#{prezzofila.prezzo}
+		              				</h:column>
 						</h:dataTable>
 					</h:panelGroup>
 					<h3>Prenota il tuo posto spiaggia</h3>
