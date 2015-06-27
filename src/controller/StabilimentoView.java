@@ -128,6 +128,4 @@ public class StabilimentoView implements Serializable{
 		this.postoDaPrenotare = postoDaPrenotare;
 	}
 	
-	
-	
 }

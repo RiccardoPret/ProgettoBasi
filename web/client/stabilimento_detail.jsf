@@ -9,17 +9,61 @@
 <h:body>
 
 	<ui:composition template="/templates/layout.jsf">
-		<ui:define name="windowTitle">Home</ui:define>
-		
+		<ui:define name="windowTitle">Dettaglio stabilimento </ui:define>
+
 		<ui:define name="menu">
 			<ui:include src="/templates/menu.jsf" />
 		</ui:define>
 
 		<ui:define name="content">
+			<div id="page">
+				<h3>Dettagli stabilimento #{stab_detail.stab.nome}</h3>
+				<ul>
+					<li><b>Nome</b>: #{stab_detail.stab.nome}</li>
+					<li><b>Localita</b>: #{stab_detail.stab.localita}</li>
+					<li><b>Via</b>: #{stab_detail.stab.via}</li>
+					<li><b>Civico</b>: #{stab_detail.stab.civico}</li>
+					<li><b>Citta</b>: #{stab_detail.stab.citta}</li>
+					<li><b>Responsabile</b>: #{stab_detail.stab.responsabile}</li>
+					<li><b>Telefono</b>: #{stab_detail.stab.telefono}</li>
+					<li><b>Data di apertura</b>: #{stab_detail.stab.data_apertura}</li>
+					<li><b>Data do chiusura</b>: #{stab_detail.stab.data_chiusura}</li>
+					<li><b>Sala giochi</b>: #{stab_detail.stab.isHa_salagiochi()? 'Si': 'No'}</li>
+					<li><b>Campo di pallavolo</b>:
+						#{stab_detail.stab.isHa_volley()? 'Si': 'No'}</li>
+					<li><b>Campo di bocce</b>: #{stab_detail.stab.isHa_bocce()? 'Si': 'No'}</li>
 
-			<p>Dettaglio stabilimento</p>
-			<h:outputLabel value="#{stab_detail.stab.data_apertura}"/>
+					<li><h:outputLabel value="#{stab_detail.stab.h_apertura}"
+							rendered="#{stab_detail.stab.isHa_ristorante()}" /></li>
+					<li><h:outputLabel value="#{stab_detail.stab.h_chiusura}"
+							rendered="#{stab_detail.stab.isHa_ristorante()}" /></li>
+					<li><b>Numero posti spiaggia</b> #{stab_detail.numeroPosti}</li>
+				</ul>
 
+				<div class="dettaglio_stab">
+					<h3>Elenco prezzi dei posti spiaggia</h3>
+					<h:panelGroup layout="block">
+						<h:dataTable value="#{stab_detail.prezzi}" var="prezzofila">
+							<h:column>
+								<f:facet name="header">Periodo</f:facet>
+										#{prezzofila.periodo_nome}
+									</h:column>
+							<h:column>
+								<f:facet name="header">Fila</f:facet>
+		                				#{prezzofila.fila}
+		              				</h:column>
+							<h:column>
+								<f:facet name="header">Prezzo</f:facet>
+		                				#{prezzofila.prezzo}
+		              				</h:column>
+						</h:dataTable>
+					</h:panelGroup>
+
+					<h3>Prenota il tuo posto spiaggia</h3>
+					
+				</div>
+
+			</div>
 		</ui:define>
 	</ui:composition>
 </h:body>

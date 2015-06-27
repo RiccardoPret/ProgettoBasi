@@ -18,7 +18,10 @@
 		<ui:define name="content">
 			<h:form>
 				<div id="page">
-					<p>Bentornato #{securityBacking.username}</p>
+					<p>Bentornato #{securityBacking.username}</p><br />
+					<p>Torna alla home per poter prenotare il tuo posto spiaggia!</p>
+					
+					<h:commandButton value="Torna alla home" class="button" action="/index.jsf?faces-redirect=true"></h:commandButton>
 				</div>
 			</h:form>
 		</ui:define>

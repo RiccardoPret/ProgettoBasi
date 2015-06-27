@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -34,6 +35,22 @@
 										action="#{main.goToDetail(stab.nome)}"/>
 								</h:column>
 								<h:column>
+									<f:facet name="header">Località</f:facet>
+	                				#{stab.localita}
+	              				</h:column>
+	              				<h:column>
+									<f:facet name="header">Via</f:facet>
+	                				#{stab.via}
+	              				</h:column>
+	              				<h:column>
+									<f:facet name="header">Civico</f:facet>
+	                				#{stab.civico}
+	              				</h:column>
+	              				<h:column>
+									<f:facet name="header">Città</f:facet>
+	                				#{stab.citta}
+	              				</h:column>
+								<h:column>
 									<f:facet name="header">Telefono</f:facet>
 	                				#{stab.telefono}
 	              				</h:column>
@@ -44,15 +61,13 @@
 					</div>
 					<div class="tbox2">
 						<h3>Sede</h3>
-						<p>Etiam neque. Vivamus consequat lorem at nisl. Nullam wisi a
-							sem semper eleifend. Donec mattis. Phasellus pellentesque, ante
-							nec iaculis dapibus, eros justo auctor lectus, a lobortis lorem
-							mauris quis nunc.</p>
+						<p>La sede legale della PigiadiSoft si trova in strada Le Grazie, Verona</p>
 						<h3>Contatti</h3>
-						<p>Aenean lectus lorem, imperdiet at, ultrices eget, ornare
-							et, wisi. Pellentesque adipiscing purus. Phasellus pellentesque,
-							ante nec iaculis dapibus, eros justo auctor lectus, a lobortis
-							lorem mauris quis nunc.</p>
+						<ul>
+							<li>Email: </li>
+							<li>Telefono: </li>
+							<li>Fax: </li>
+						</ul>
 					</div>
 				</div>
 			</h:form>

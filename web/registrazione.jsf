@@ -14,11 +14,15 @@
 	<ui:composition template="/templates/layout.jsf">
 		<ui:define name="windowTitle">Registrazione</ui:define>
 
+		<ui:define name="menu">
+			<ui:include src="/templates/menu.jsf" />
+		</ui:define>
+
 		<ui:define name="content">
 			<h:form>
 				<div id="three-column" class="container">
 					<div class="title">
-						<span class="byline">#{text.homeDescription}</span>
+						<span class="byline">#{text.registrazioneDescription}</span>
 					</div>
 					<div id="page">
 						<table>
@@ -60,12 +64,12 @@
 							</tr>
 						</table>
 						<p>
-							<h:commandButton value="Registra">
-								<f:ajax execute="nome cognome username password email residenza tipodoc ente numdoc" render="out" />
+							<h:commandButton value="Registrati" class="button">
+								<f:ajax execute="nome cognome username password email residenza tipodoc entedoc numdoc" render="out" />
 							</h:commandButton>
 						</p>
 						<h3>
-							<h:outputText id="out" value="#{register.register}" />
+							<h:outputText id="out" value="#{register.register()}" />
 						</h3>
 
 					</div>

@@ -4,13 +4,13 @@ import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 import util.InsertHelper;
 import model.ClienteDataBean;
 
 @ManagedBean(name = "register")
-@SessionScoped
+@ViewScoped
 public class RegisterView implements Serializable{
 	
 	private ClienteDataBean user;
@@ -30,7 +30,7 @@ public class RegisterView implements Serializable{
 								, this.user.getDocumento_numero(), this.user.getEmail()
 								, this.user.getLogin(), this.user.getPassword());
 		if(!result){
-			return "Registrazione fallita!";
+			return user.getLogin()==null?"":"Registrazione fallita!";
 		}
 		else{
 			this.user=new ClienteDataBean();

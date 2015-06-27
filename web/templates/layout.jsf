@@ -29,13 +29,7 @@
 					<h2>#{text.bannerTitle}</h2>
 					<span class="byline">#{text.bannerSubTitle}</span>
 				</div>
-				<ul class="actions">
-					<h:form>
-						<h:commandLink action="registrazione.jsf" class="button"
-							value="#{text.bannerButton}" />
-						<br />
-					</h:form>
-				</ul>
+				
 			</div>
 		</div>
 	</div>
