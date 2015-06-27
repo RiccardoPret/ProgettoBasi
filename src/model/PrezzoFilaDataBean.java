@@ -6,11 +6,15 @@ public class PrezzoFilaDataBean extends DataBean{
 	private String periodo_nome;
 	private int fila;
 	private BigDecimal prezzo;
-	public PrezzoFilaDataBean(String periodo_nome, int fila, BigDecimal prezzo) {
+	private int minPosto,maxPosto;
+	public PrezzoFilaDataBean(String periodo_nome, int fila, BigDecimal prezzo,
+			int minPosto, int maxPosto) {
 		super();
 		this.periodo_nome = periodo_nome;
 		this.fila = fila;
 		this.prezzo = prezzo;
+		this.minPosto = minPosto;
+		this.maxPosto = maxPosto;
 	}
 	public PrezzoFilaDataBean() {
 		super();
@@ -33,16 +37,31 @@ public class PrezzoFilaDataBean extends DataBean{
 	public void setPrezzo(BigDecimal prezzo) {
 		this.prezzo = prezzo;
 	}
+	public int getMinPosto() {
+		return minPosto;
+	}
+	public void setMinPosto(int minPosto) {
+		this.minPosto = minPosto;
+	}
+	public int getMaxPosto() {
+		return maxPosto;
+	}
+	public void setMaxPosto(int maxPosto) {
+		this.maxPosto = maxPosto;
+	}
 	@Override
 	public String toString() {
 		return "PrezzoFilaDataBean [periodo_nome=" + periodo_nome + ", fila="
-				+ fila + ", prezzo=" + prezzo + "]";
+				+ fila + ", prezzo=" + prezzo + ", minPosto=" + minPosto
+				+ ", maxPosto=" + maxPosto + "]";
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + fila;
+		result = prime * result + maxPosto;
+		result = prime * result + minPosto;
 		result = prime * result
 				+ ((periodo_nome == null) ? 0 : periodo_nome.hashCode());
 		result = prime * result + ((prezzo == null) ? 0 : prezzo.hashCode());
@@ -59,6 +78,10 @@ public class PrezzoFilaDataBean extends DataBean{
 		PrezzoFilaDataBean other = (PrezzoFilaDataBean) obj;
 		if (fila != other.fila)
 			return false;
+		if (maxPosto != other.maxPosto)
+			return false;
+		if (minPosto != other.minPosto)
+			return false;
 		if (periodo_nome == null) {
 			if (other.periodo_nome != null)
 				return false;
@@ -71,6 +94,8 @@ public class PrezzoFilaDataBean extends DataBean{
 			return false;
 		return true;
 	}
+	
+	
 	
 	
 }

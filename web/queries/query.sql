@@ -22,7 +22,7 @@ WHERE S.nome=?
 GROUP BY S.nome;
 
 --prezzo per ogni fila per ogni periodo, assumiamo che i posti di ogni fila abbiano tutti lo stesso prezzo
-prezzo_fila=}SELECT DISTINCT  MAX(P.data_inizio),PP.periodo_nome, MAX(PS.fila) AS mfila, PP.prezzo
+prezzo_fila=}SELECT DISTINCT  MAX(P.data_inizio),PP.periodo_nome, MAX(PS.fila) AS mfila, PP.prezzo, MIN(PS.numero) as minposto, MAX(PS.numero) AS maxposto
 FROM PostoSpiaggia PS JOIN PP ON PS.stabilimento=PP.posto_spiaggia_stabilimento AND PS.numero=PP.posto_spiaggia_numero JOIN Periodo P ON P.nome=PP.periodo_nome
 WHERE PS.stabilimento=?
 GROUP BY PP.periodo_nome, PS.fila, PP.prezzo
