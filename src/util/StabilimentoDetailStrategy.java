@@ -55,7 +55,8 @@ public class StabilimentoDetailStrategy extends DataBeanGetStrategy{
 		sdb.setData_chiusura(rs.getDate("data_chiusura"));
 		sdb.setHa_salagiochi(rs.getBoolean("ha_salagiochi"));
 		sdb.setHa_volley(rs.getBoolean("ha_volley"));
-		sdb.setHa_bocce(rs.getBoolean("ha_ristorante"));
+		sdb.setHa_bocce(rs.getBoolean("ha_bocce"));
+		sdb.setHa_ristorante(rs.getBoolean("ha_ristorante"));
 		sdb.setH_apertura(rs.getTime("h_apertura"));
 		sdb.setH_chiusura(rs.getTime("h_chiusura"));
 		sdb.setSpecialita(rs.getString("specialita"));
