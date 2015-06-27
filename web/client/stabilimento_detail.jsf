@@ -10,12 +10,18 @@
 
 	<ui:composition template="/templates/layout.jsf">
 		<ui:define name="windowTitle">Home</ui:define>
+		
+		<ui:define name="menu">
+			<ui:include src="/templates/menu.jsf" />
+		</ui:define>
 
 		<ui:define name="content">
 
-			<p>Bentornato #{securityBacking.welcome}</p>
+			<p>Dettaglio stabilimento</p>
 			<h:form>
-				<h:commandButton action="#{securityBacking.logout}" value="Logout" />
+				<f:metadata>
+					<f:viewParam id="nome" value="#{stab_detail.stab.nome}" />
+				</f:metadata>
 			</h:form>
 
 		</ui:define>

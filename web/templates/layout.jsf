@@ -20,18 +20,7 @@
 				</h1>
 			</div>
 			<div id="menu">
-				<ui:insert name="menu">
-					<h:form>
-						<ul>
-							<li><h:commandLink action="/index.jsf?faces-redirect=true" value="Home" /><br /></li>
-							<li><h:commandLink action="/registrazione.jsf?faces-redirect=true" value="Sign Up" rendered="#{!securityBacking.isLoggedIn()}"/><br /></li>
-							<li><h:commandLink action="/client/index.jsf?faces-redirect=true"
-									value="Sign In" rendered="#{!securityBacking.isLoggedIn()}"/><br /></li>
-							<li><h:commandLink action="#{securityBacking.logout}" value="Logout" rendered="#{securityBacking.isLoggedIn()}" /><br /></li>
-							
-						</ul>
-					</h:form>
-				</ui:insert>
+				<ui:insert name="menu"/>
 			</div>
 		</div>
 		<div id="banner-wrapper">
@@ -42,7 +31,7 @@
 				</div>
 				<ul class="actions">
 					<h:form>
-						<h:commandLink action="registrazione" class="button"
+						<h:commandLink action="registrazione.jsf" class="button"
 							value="#{text.bannerButton}" />
 						<br />
 					</h:form>

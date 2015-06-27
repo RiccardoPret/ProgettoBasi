@@ -10,14 +10,21 @@
 </head>
 <body>
 	<ui:composition template="/templates/layout.jsf">
-		<ui:define name="windowTitle">Home</ui:define>
+		<ui:define name="windowTitle">Login Page</ui:define>
+		
+		<ui:define name="menu">
+			<ui:include src="/templates/menu.jsf"/>
+		</ui:define>
 
 		<ui:define name="content">
-			<form id="loginForm" method="post" action="j_security_check">
-				<input name="j_username" type="text" placeholder="Username" /> <br></br>
-				<input name="j_password" type="password" placeholder="Password" /> 
-				<input value="Login" type="submit" />
+		<div id="page">
+		<form id="loginForm" method="post" action="j_security_check">
+				<input name="j_username" type="text" /> <br></br>
+				<input name="j_password" type="password" /> <br></br>
+				<input value="Login" type="submit" class="button button-alt"/>
 			</form>
+		</div>
+			
 		</ui:define>
 	</ui:composition>
 </body>

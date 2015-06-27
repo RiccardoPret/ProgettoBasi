@@ -10,7 +10,12 @@
 </head>
 <body>
 	<ui:composition template="/templates/layout.jsf">
+
 		<ui:define name="windowTitle">Home</ui:define>
+
+		<ui:define name="menu">
+			<ui:include src="/templates/menu.jsf" />
+		</ui:define>
 
 		<ui:define name="content">
 			<h:form>
@@ -20,10 +25,22 @@
 					</div>
 					<div class="tbox1">
 						<h2>Aperti oggi</h2>
-						<p>Phasellus pellentesque, ante nec iaculis dapibus, eros
-							justo auctor lectus, a lobortis lorem mauris quis nunc. Praesent
-							pellentesque facilisis elit. Class aptent taciti sociosqu ad
-							torquent per conubia nostra.</p>
+
+						<h:panelGroup layout="block">
+							<h:dataTable value="#{main.apertiOggi}" var="stab">
+								<h:column>
+									<f:facet name="header">Nome</f:facet>
+									<h:commandLink value="#{stab.nome}" action="/client/stabilimento_detail.jsf?faces-redirect=true">
+                    					<f:param name="nome" value="#{stab.nome}"></f:param>
+                					</h:commandLink>
+								</h:column>
+								<h:column>
+									<f:facet name="header">Telefono</f:facet>
+	                				#{stab.telefono}
+	              				</h:column>
+							</h:dataTable>
+						</h:panelGroup>
+
 						<a href="#" class="button button-alt">Guarda tutti</a>
 					</div>
 					<div class="tbox2">
