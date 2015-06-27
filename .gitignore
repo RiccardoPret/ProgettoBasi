@@ -1,5 +1,8 @@
-web/WEB-INF/classes/*
-!web/WEB-INF/classes/lang/*
+web/WEB-INF/classes/controller
+web/WEB-INF/classes/login
+web/WEB-INF/classes/model
+web/WEB-INF/classes/test
+web/WEB-INF/classes/util
 .settings/*
 .classpath
 RemoteSystemsTempFiles/*
