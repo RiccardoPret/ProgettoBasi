@@ -25,7 +25,7 @@ import util.InsertHelper;
 @SessionScoped
 public class EsitoView implements Serializable{
 	
-	@ManagedProperty(value = "securityBacking")
+	@ManagedProperty(value = "#{securityBacking}")
 	private SecurityBacking securityBacking;
 	
 	private boolean esito;
@@ -55,7 +55,7 @@ public class EsitoView implements Serializable{
 		}
 	}
 	
-	//cliente si tira giù da login
+	//cliente si tira giï¿½ da login
 	//magari nel security backing segnarsi anche l'id utente?
 	public void setEsito(Date data_inizio, Date data_fine,String stabName,int posto){
 		int cliente=0;
