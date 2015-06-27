@@ -18,13 +18,13 @@ public abstract class DataBeanGetStrategy {
 		this.queryName=queryName;
 		this.params=params;
 	}
+	
 	public DataBeanGetStrategy(){
 		
 	}
 	
 	public List<DataBean> getSelectedBeans() throws SQLException{
 		List<DataBean> toRet=new ArrayList<DataBean>();
-		
 		String qText=Query.getInstance().getQuery(this.queryName);
 		DatabaseDriver dbd=new DatabaseDriver();
 		dbd.openConnection();
