@@ -18,11 +18,7 @@
 		<ui:define name="content">
 
 			<p>Dettaglio stabilimento</p>
-			<h:form>
-				<f:metadata>
-					<f:viewParam id="nome" value="#{stab_detail.stab.nome}" />
-				</f:metadata>
-			</h:form>
+			<h:outputLabel value="#{stab_detail.stab.data_apertura}"/>
 
 		</ui:define>
 	</ui:composition>
