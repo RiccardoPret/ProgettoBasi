@@ -23,9 +23,10 @@ GROUP BY S.nome;
 
 --prezzo per ogni fila per ogni periodo, assumiamo che i posti di ogni fila abbiano tutti lo stesso prezzo
 prezzo_fila=}SELECT DISTINCT PP.periodo_nome, PS.fila, PP.prezzo
-FROM PostoSpiaggia PS JOIN PP ON PS.stabilimento=PP.posto_spiaggia_stabilimento AND PS.numero=PP.posto_spiaggia_numero
+FROM PostoSpiaggia PS JOIN PP ON PS.stabilimento=PP.posto_spiaggia_stabilimento AND PS.numero=PP.posto_spiaggia_numero JOIN Periodo P ON P.nome=PP.periodo_nome
 WHERE PS.stabilimento=?
-GROUP BY PP.periodo_nome, PS.fila, PP.prezzo;
+GROUP BY PP.periodo_nome, PS.fila, PP.prezzo
+ORDER BY P.data_inizio ASC, PS.fila ASC;
 
 --check libero per prenotazione
 check_prenotabile=}SELECT 1
