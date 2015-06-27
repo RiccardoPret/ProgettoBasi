@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import model.DataBean;
@@ -22,6 +23,12 @@ public class StabilimentoView implements Serializable{
 	private StabilimentoDataBean stab;
 	private int numeroPosti;
 	private List<PrezzoFilaDataBean> prezzi;
+	
+	private String data_inizio,data_fine;
+	private int postoDaPrenotare;
+	
+	@ManagedProperty(value="#{esito}")
+	private EsitoView esito;
 	
 	public StabilimentoView(){
 		
@@ -58,6 +65,10 @@ public class StabilimentoView implements Serializable{
 		this.numeroPosti=0;
 	}
 	
+	public String goToEsito(){
+		this.esito.setEsito(this.data_inizio, this.data_fine, this.stab.getNome(), this.postoDaPrenotare);
+		return "/client/esito.jsf?faces-redirect=true";
+	}
 	
 	//***********************GETTERS E SETTERS***************
 
@@ -83,6 +94,38 @@ public class StabilimentoView implements Serializable{
 
 	public void setPrezzi(List<PrezzoFilaDataBean> prezzi) {
 		this.prezzi = prezzi;
+	}
+
+	public EsitoView getEsito() {
+		return esito;
+	}
+
+	public void setEsito(EsitoView esito) {
+		this.esito = esito;
+	}
+
+	public String getData_inizio() {
+		return data_inizio;
+	}
+
+	public void setData_inizio(String data_inizio) {
+		this.data_inizio = data_inizio;
+	}
+
+	public String getData_fine() {
+		return data_fine;
+	}
+
+	public void setData_fine(String data_fine) {
+		this.data_fine = data_fine;
+	}
+
+	public int getPostoDaPrenotare() {
+		return postoDaPrenotare;
+	}
+
+	public void setPostoDaPrenotare(int postoDaPrenotare) {
+		this.postoDaPrenotare = postoDaPrenotare;
 	}
 	
 	

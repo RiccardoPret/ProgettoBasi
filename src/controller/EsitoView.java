@@ -2,6 +2,8 @@ package controller;
 
 import java.io.Serializable;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -41,6 +43,16 @@ public class EsitoView implements Serializable{
 	
 	public void setEsito(long data_inizio, long data_fine,String stabName,int posto){
 		this.setEsito(new Date(data_inizio), new Date(data_fine), stabName, posto);
+	}
+	
+	public void setEsito(String data_inizio,String data_fine,String stabName,int posto){
+		SimpleDateFormat parserSDF=new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			this.setEsito(parserSDF.parse(data_inizio), parserSDF.parse(data_fine)
+								, stabName, posto);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	//cliente si tira giù da login

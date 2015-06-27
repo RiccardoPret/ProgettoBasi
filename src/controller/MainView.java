@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import util.StabilimentiCorrentiStrategy;
@@ -18,6 +19,10 @@ import model.StabilimentoDataBean;
 public class MainView implements Serializable{
 	
 	private List<StabilimentoDataBean> apertiOggi;
+	
+	@ManagedProperty(value = "#{stab_detail}")
+	private StabilimentoView stab_detail;
+	
 	
 	public MainView(){
 		
@@ -48,4 +53,19 @@ public class MainView implements Serializable{
 			return ;
 		}
 	}
+	
+	public String goToDetail(String stabname){
+		this.stab_detail.setStabilimento(stabname);
+		return "/client/stabilimento_detail.jsf?faces-redirect=true";
+	}
+
+	public StabilimentoView getStab_detail() {
+		return stab_detail;
+	}
+
+	public void setStab_detail(StabilimentoView stab_detail) {
+		this.stab_detail = stab_detail;
+	}
+	
+	
 }

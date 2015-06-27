@@ -30,9 +30,8 @@
 							<h:dataTable value="#{main.apertiOggi}" var="stab">
 								<h:column>
 									<f:facet name="header">Nome</f:facet>
-									<h:commandLink value="#{stab.nome}" action="/client/stabilimento_detail.jsf?faces-redirect=true">
-                    					<f:param name="nome" value="#{stab.nome}"></f:param>
-                					</h:commandLink>
+									<h:commandLink value="#{stab.nome}" 
+										action="#{main.goToDetail(stab.nome)}"/>
 								</h:column>
 								<h:column>
 									<f:facet name="header">Telefono</f:facet>
