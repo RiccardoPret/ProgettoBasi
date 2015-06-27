@@ -23,6 +23,8 @@ public class PrezzoFileStrategy extends DataBeanGetStrategy{
 		pfdb.setFila(rs.getInt("mfila"));
 		pfdb.setPeriodo_nome(rs.getString("periodo_nome"));
 		pfdb.setPrezzo(rs.getBigDecimal("prezzo"));
+		pfdb.setMinPosto(rs.getInt("minposto"));
+		pfdb.setMaxPosto(rs.getInt("maxposto"));
 		return pfdb;
 	}
 	
