@@ -29,6 +29,8 @@ public class EsitoView implements Serializable{
 	private SecurityBacking securityBacking;
 	
 	private boolean esito;
+	private Date data_inizio,data_fine;
+	
 	private List<PostoSpiaggiaDataBean> alternative;
 	
 	public EsitoView(){
@@ -59,6 +61,8 @@ public class EsitoView implements Serializable{
 	//magari nel security backing segnarsi anche l'id utente?
 	public void setEsito(Date data_inizio, Date data_fine,String stabName,int posto){
 		int cliente=0;
+		this.data_inizio=data_inizio;
+		this.data_fine=data_fine;
 		//estraggo l'id dell'utente
 		String username=this.securityBacking.getUsername();
 		ClienteByUsernameStrategy cbus=new ClienteByUsernameStrategy(username);
@@ -101,6 +105,11 @@ public class EsitoView implements Serializable{
 		this.esito=false;
 		this.alternative=new ArrayList<PostoSpiaggiaDataBean>(0);
 		
+	}
+	
+	public String prenotaSu(PostoSpiaggiaDataBean psdb){
+		this.setEsito(this.data_inizio, this.data_fine, psdb.getStabilimento(), psdb.getNumero());
+		return "/client/esito.jsf?faces-redirect=true";
 	}
 
 	public boolean getEsito() {

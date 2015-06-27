@@ -20,7 +20,7 @@ public class PrezzoFileStrategy extends DataBeanGetStrategy{
 	@Override
 	protected DataBean buildDataBean(ResultSet rs) throws SQLException {
 		PrezzoFilaDataBean pfdb=new PrezzoFilaDataBean();
-		pfdb.setFila(rs.getInt("fila"));
+		pfdb.setFila(rs.getInt("mfila"));
 		pfdb.setPeriodo_nome(rs.getString("periodo_nome"));
 		pfdb.setPrezzo(rs.getBigDecimal("prezzo"));
 		return pfdb;

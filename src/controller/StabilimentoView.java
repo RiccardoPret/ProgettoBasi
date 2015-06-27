@@ -38,6 +38,7 @@ public class StabilimentoView implements Serializable{
 	public void initialize(){
 		//this.setStabilimento("");//o uso GET e lo setto qua
 								 //o faccio chiamare set dal main
+		this.stab=new StabilimentoDataBean();
 	}
 	
 	public void setStabilimento(String nomestab){
