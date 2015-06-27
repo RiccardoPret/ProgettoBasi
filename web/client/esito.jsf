@@ -1,1 +1,30 @@
-ciao
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>Client Page</h:head>
+<h:body>
+
+	<ui:composition template="/templates/layout.jsf">
+		<ui:define name="windowTitle">Esito della prenotazione</ui:define>
+
+		<ui:define name="menu">
+			<ui:include src="/templates/menu.jsf" />
+		</ui:define>
+
+		<ui:define name="content">
+			<h:form>
+				<div id="page">
+					<p>Bentornato #{securityBacking.username}</p><br />
+					<p>Torna alla home per poter prenotare il tuo posto spiaggia!</p>
+					
+					<h:commandButton value="Torna alla home" class="button" action="/index.jsf?faces-redirect=true"></h:commandButton>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>
