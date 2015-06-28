@@ -38,6 +38,8 @@ public class MainView implements Serializable{
 	}
 	
 	private void setApertiOggi(){
+		/*StabilimentiCorrentiStrategy scs=
+				new StabilimentiCorrentiStrategy("all_stabs", new ArrayList<Object>(0));*/
 		StabilimentiCorrentiStrategy scs=new StabilimentiCorrentiStrategy();
 		try {
 			List<DataBean> list=scs.getSelectedBeans();

@@ -86,13 +86,19 @@ public class EsitoView implements Serializable{
 								, new java.sql.Date(data_fine.getTime()));
 		
 		try {
-			this.esito=cls.getSelectedBeans().isEmpty() && cls.postospiaggiaExists(posto);
+			this.esito=cls.getSelectedBeans().isEmpty() 
+					&& cls.postospiaggiaExists(posto)
+					&& data_fine.compareTo(data_inizio)>=0;
 			if(this.esito){
 				InsertHelper.insertPrenotazione(cliente, data_inizio, data_fine, stabName, posto);
 				this.alternative=new ArrayList<PostoSpiaggiaDataBean>(0);
 				return;
 			}
 			else{
+				if(data_fine.compareTo(data_inizio)<0){
+					this.alternative=new ArrayList<PostoSpiaggiaDataBean>(0);
+					return;
+				}
 				AltriLiberiStrategy als=
 						new AltriLiberiStrategy(new java.sql.Date(data_inizio.getTime())
 												, new java.sql.Date(data_fine.getTime()));

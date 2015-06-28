@@ -13,6 +13,10 @@ public class StabilimentiCorrentiStrategy extends DataBeanGetStrategy {
 	public StabilimentiCorrentiStrategy() {
 		super("stab_aperti_oggi",new ArrayList<Object>(0));
 	}
+	
+	public StabilimentiCorrentiStrategy(String queryalt, List<Object> args){
+		super(queryalt,args);
+	}
 
 	@Override
 	protected DataBean buildDataBean(ResultSet rs) throws SQLException {

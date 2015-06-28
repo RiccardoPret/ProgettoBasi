@@ -82,9 +82,10 @@ CREATE TABLE Prenotazione(
 						ON DELETE CASCADE
 						ON UPDATE CASCADE,
 	data_inizio DATE NOT NULL,
-	data_fine DATE NOT NULL,
+	data_fine DATE NOT NULL CHECK(data_fine>=data_inizio),
 	importo DECIMAL(6,2),
 	tipo_pagamento VARCHAR(20) CHECK(tipo_pagamento IN ('bancomat','contanti','cartacredito'))
+	
 	);
 
 CREATE TABLE NoleggioGiornaliero(
