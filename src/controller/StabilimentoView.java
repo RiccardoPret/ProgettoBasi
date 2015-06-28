@@ -72,6 +72,9 @@ public class StabilimentoView implements Serializable{
 	
 	public String goToEsito(){
 		this.esito.setEsito(this.data_inizio, this.data_fine, this.stab.getNome(), this.postoDaPrenotare);
+		this.data_inizio=null;
+		this.data_fine=null;
+		this.postoDaPrenotare=0;
 		return "/client/esito.jsf?faces-redirect=true";
 	}
 	

@@ -22,7 +22,7 @@
 
 		<ui:define name="content">
 			<h:form>
-				<div id="page">
+				<div class="tabelle">
 					<h:panelGroup layout="block">
 						<h:dataTable value="#{main.allStabilimenti}" var="stab">
 							<h:column>

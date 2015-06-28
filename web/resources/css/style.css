@@ -371,10 +371,22 @@
 		text-align: center;
 	}
 	
+	.tabelle
+	{
+		color: rgba(0,0,0,0.6);
+		text-align:center;
+		margin-left:auto;
+		margin-right: auto;
+    	width:600px;
+	}
+	
 	.dettaglio_stab
 	{
 		color: rgba(0,0,0,0.6);
-		margin-left: 500px;
+		text-align:center;
+		margin-left:auto;
+		margin-right: auto;
+    	width:250px;
 	}
 	
 	#registrazione

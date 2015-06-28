@@ -35,12 +35,17 @@
 						<table id="registrazione">
 							<tr>
 								<td>Nome:</td>
-								<td><h:inputText value="#{register.user.nome}" id="nome"/></td>
+								<td><h:inputText value="#{register.user.nome}" 
+									id="nome"
+									requiredMessage="Il nome va inserito"
+									required="true"/></td>
 							</tr>
 							<tr>
 								<td>Cognome:</td>
 								<td><h:inputText value="#{register.user.cognome}"
-										id="cognome" /></td>
+										id="cognome" 
+										requiredMessage="Il cognome va inserito"
+										required="true"/></td>
 							</tr>
 							<tr>
 								<td>Username:</td>
@@ -55,7 +60,9 @@
 							<tr>
 								<td>Password:</td>
 								<td><h:inputSecret value="#{register.user.password}"
-										id="password" /></td>
+										id="password" 
+										requiredMessage="Inserire una password"
+										required="true"/></td>
 							</tr>
 							<tr>
 								<td>Email:</td>
@@ -71,7 +78,9 @@
 							<tr>
 								<td>Residenza:</td>
 								<td><h:inputText value="#{register.user.residenza}"
-										id="residenza" /></td>
+										id="residenza" 
+										requiredMessage="Inserire la residenza"
+										required="true"/></td>
 							</tr>
 							<tr>
 								<td>Tipo documento:</td>
@@ -86,23 +95,34 @@
 							<tr>
 								<td>Ente documento:</td>
 								<td><h:inputText value="#{register.user.documento_ente}"
-										id="entedoc" /></td>
+										id="entedoc" 
+										requiredMessage="Inserire l'ente fornitore del documento"
+										required="true"/></td>
 							</tr>
 							<tr>
 								<td>Numero documento:</td>
 								<td><h:inputText value="#{register.user.documento_numero}"
-										id="numdoc" /></td>
+										id="numdoc" 
+										requiredMessage="Inserire il numero del documento"
+										required="true"/></td>
 							</tr>
 						</table>
 						
-						<br></br><h:message id="msg1" for="email"></h:message>
-						<br></br><h:message id="msg2" for="username"></h:message>
+						<br /><h:message id="msg1" for="email"></h:message>
+						<br /><h:message id="msg2" for="username"></h:message>
+						<br /><h:message id="msg3" for="nome"></h:message>
+						<br /><h:message id="msg4" for="cognome"></h:message>
+						<br /><h:message id="msg5" for="password"></h:message>
+						<br /><h:message id="msg6" for="residenza"></h:message>
+						<br /><h:message id="msg7" for="tipodoc"></h:message>
+						<br /><h:message id="msg8" for="entedoc"></h:message>
+						<br /><h:message id="msg9" for="numdoc"></h:message>
 						
 						<p>
 							<h:commandButton value="Registrati" class="button button-alt">
 								<f:ajax
 									execute="nome cognome username password email residenza tipodoc entedoc numdoc"
-									render="out msg1 msg2"/>
+									render="out msg1 msg2 msg3 msg4 msg5 msg6 msg7 msg8 msg9"/>
 							</h:commandButton>
 						</p>
 						<h3>
