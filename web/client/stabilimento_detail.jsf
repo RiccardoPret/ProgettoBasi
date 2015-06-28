@@ -16,6 +16,7 @@
 		</ui:define>
 
 		<ui:define name="content">
+		
 			<h:form>
 				<div id="page">
 					<h3>Dettagli stabilimento #{stab_detail.stab.nome}</h3>
@@ -43,8 +44,9 @@
 						<li><b>Numero posti spiaggia</b> #{stab_detail.numeroPosti}</li>
 					</ul>
 				</div>
-				</h:form>
-				<h:form>
+			</h:form>
+			
+			<h:form>
 				<div id="dettaglio_stab">
 					<h3>Elenco prezzi dei posti spiaggia</h3>
 					<h:panelGroup layout="block">
@@ -67,31 +69,49 @@
 		              				</h:column>
 						</h:dataTable>
 					</h:panelGroup>
+				</div>
+				<div id="dettaglio_stab">
 					<h3>Prenota il tuo posto spiaggia</h3>
 					<table>
 						<tr>
 							<td>Data inizio:</td>
-							<td><h:inputText value="#{stab_detail.data_inizio}"
-									id="data_i" /></td>
+							<td>
+								<h:inputText value="#{stab_detail.data_inizio}" id="data_i" >
+								</h:inputText>
+							</td>
 						</tr>
 						<tr>
 							<td>Data fine:</td>
-							<td><h:inputText value="#{stab_detail.data_fine}"
-									id="data_f" /></td>
+							<td>
+								<h:inputText value="#{stab_detail.data_fine}" id="data_f" >
+								</h:inputText>
+							</td>
 						</tr>
 						<tr>
 							<td>Numero Posto spiaggia:</td>
-							<td><h:inputText value="#{stab_detail.postoDaPrenotare}"
-									id="num_posto" /></td>
+							<td>
+								<h:inputText value="#{stab_detail.postoDaPrenotare}" 
+									id="num_posto" 
+									requiredMessage="Lo username deve essere lungo almeno 3 caratteri"
+									required="true">
+									<f:validateLength minimum="0" />
+								</h:inputText>
+							</td>
 						</tr>
 					</table>
-					<p>
-						<h:commandButton value="Prenota" class="button"
-							action="#{stab_detail.goToEsito()}"></h:commandButton>
-					</p>
 				</div>
-
+				<div id="page">
+				<br></br><h:message id="negative_msg" for="email"></h:message>
+					
+				<p>
+					<h:commandButton value="Prenota" class="button"
+						action="#{stab_detail.goToEsito()}">
+						<f:ajax render="negative_msg"/>
+					</h:commandButton>
+				</p>
+				</div>
 			</h:form>
+			
 		</ui:define>
 	</ui:composition>
 </h:body>

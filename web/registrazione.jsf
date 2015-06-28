@@ -27,13 +27,12 @@
 						<span class="byline">#{text.registrazioneDescription}</span>
 					</h:form>
 				</div>
-
 				<h:form>
 					<div id="page">
-						<table>
+						<table id="registrazione">
 							<tr>
 								<td>Nome:</td>
-								<td><h:inputText value="#{register.user.nome}" id="nome" /></td>
+								<td><h:inputText value="#{register.user.nome}" id="nome"/></td>
 							</tr>
 							<tr>
 								<td>Cognome:</td>
@@ -44,9 +43,11 @@
 								<td>Username:</td>
 								<td><h:inputText value="#{register.user.login}"
 										id="username"
-										validatorMessage="Lo username deve essere lungo almeno 3 caratteri">
+										requiredMessage="Lo username deve essere lungo almeno 3 caratteri"
+										required="true">
 										<f:validateLength minimum="3" />
-									</h:inputText></td>
+									</h:inputText>
+								</td>
 							</tr>
 							<tr>
 								<td>Password:</td>
@@ -55,11 +56,14 @@
 							</tr>
 							<tr>
 								<td>Email:</td>
-								<td><h:inputText id="email" value="#{register.user.email}"
-										validatorMessage="Email non valida">
+								<td><h:inputText value="#{register.user.email}"
+										id="email"
+										requiredMessage="Email non valida"
+										required="true">
 										<f:validateRegex
 											pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
-									</h:inputText></td>
+									</h:inputText>
+								</td>
 							</tr>
 							<tr>
 								<td>Residenza:</td>
@@ -68,12 +72,13 @@
 							</tr>
 							<tr>
 								<td>Tipo documento:</td>
-								<h:selectOneMenu value="#{register.user.documento_tipo}"
-									id="tipodoc">
-									<f:selectItem itemValue="cartaidentita"
-										itemLabel="Carta d'identità" />
-									<f:selectItem itemValue="passaporto" itemLabel="Passaporto" />
-								</h:selectOneMenu>
+								<td>
+									<h:selectOneMenu id="tipodoc" value="#{register.user.documento_tipo}">
+										<f:selectItem itemValue="cartaidentita"
+											itemLabel="Carta d'identità" />
+										<f:selectItem itemValue="passaporto" itemLabel="Passaporto" />
+									</h:selectOneMenu>
+								</td>
 							</tr>
 							<tr>
 								<td>Ente documento:</td>
@@ -86,17 +91,20 @@
 										id="numdoc" /></td>
 							</tr>
 						</table>
+						
+						<br></br><h:message id="msg1" for="email"></h:message>
+						<br></br><h:message id="msg2" for="username"></h:message>
+						
 						<p>
-							<h:commandButton value="Registrati" class="button">
+							<h:commandButton value="Registrati" class="button button-alt">
 								<f:ajax
 									execute="nome cognome username password email residenza tipodoc entedoc numdoc"
-									render="out" />
+									render="out msg1 msg2"/>
 							</h:commandButton>
 						</p>
 						<h3>
 							<h:outputText id="out" value="#{register.register()}" />
 						</h3>
-
 					</div>
 				</h:form>
 			

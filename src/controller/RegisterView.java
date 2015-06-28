@@ -34,8 +34,7 @@ public class RegisterView implements Serializable{
 								, this.user.getDocumento_numero(), this.user.getEmail()
 								, this.user.getLogin(), this.user.getPassword());
 		if(!result){
-			System.out.println(user.getLogin());
-			return user.getLogin()==null?"":"Registrazione fallita!";
+			return user.getLogin()==null?"":"Username o email già esistente!";
 		}
 		else{
 			this.user=new ClienteDataBean();
