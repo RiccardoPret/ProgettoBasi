@@ -16,7 +16,6 @@
 		</ui:define>
 
 		<ui:define name="content">
-		
 			<h:form>
 				<div id="page">
 					<h3>Dettagli stabilimento #{stab_detail.stab.nome}</h3>
@@ -44,10 +43,9 @@
 						<li><b>Numero posti spiaggia</b> #{stab_detail.numeroPosti}</li>
 					</ul>
 				</div>
-			</h:form>
-			
-			<h:form>
-				<div id="dettaglio_stab">
+				</h:form>
+				<h:form>
+				<div class="dettaglio_stab">
 					<h3>Elenco prezzi dei posti spiaggia</h3>
 					<h:panelGroup layout="block">
 						<h:dataTable value="#{stab_detail.prezzi}" var="prezzofila">
@@ -69,22 +67,22 @@
 		              				</h:column>
 						</h:dataTable>
 					</h:panelGroup>
-				</div>
-				<div id="dettaglio_stab">
 					<h3>Prenota il tuo posto spiaggia</h3>
 					<table>
 						<tr>
 							<td>Data inizio:</td>
-							<td>
-								<h:inputText value="#{stab_detail.data_inizio}" id="data_i" >
-								</h:inputText>
+							<td><h:inputText value="#{stab_detail.data_inizio}"
+									id="data_i" 
+									requiredMessage="Inserire data iniziale"
+									required="true"/>
 							</td>
 						</tr>
 						<tr>
 							<td>Data fine:</td>
-							<td>
-								<h:inputText value="#{stab_detail.data_fine}" id="data_f" >
-								</h:inputText>
+							<td><h:inputText value="#{stab_detail.data_fine}"
+									id="data_f" 
+									requiredMessage="Inserire data finale"
+									required="true"/>
 							</td>
 						</tr>
 						<tr>
@@ -92,26 +90,27 @@
 							<td>
 								<h:inputText value="#{stab_detail.postoDaPrenotare}" 
 									id="num_posto" 
-									requiredMessage="Lo username deve essere lungo almeno 3 caratteri"
+									requiredMessage="Inserire posto spiaggia"
+									validatorMessage="Numero posto spiaggia non corretto"
 									required="true">
-									<f:validateLength minimum="0" />
+									<f:validateLongRange minimum="0" />
 								</h:inputText>
 							</td>
 						</tr>
 					</table>
-				</div>
-				<div id="page">
-				<br></br><h:message id="negative_msg" for="email"></h:message>
 					
-				<p>
-					<h:commandButton value="Prenota" class="button"
-						action="#{stab_detail.goToEsito()}">
-						<f:ajax render="negative_msg"/>
-					</h:commandButton>
-				</p>
+					<br></br><h:message id="negative_msg" for="num_posto"></h:message>
+					<br></br><h:message id="datareq" for="data_i"></h:message>
+					<br></br><h:message id="datare2" for="data_f"></h:message>
+					
+					<p>
+						<h:commandButton value="Prenota" class="button"
+							action="#{stab_detail.goToEsito()}">
+						</h:commandButton>
+					</p>
 				</div>
+
 			</h:form>
-			
 		</ui:define>
 	</ui:composition>
 </h:body>
