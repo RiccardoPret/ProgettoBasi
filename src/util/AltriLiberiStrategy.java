@@ -22,6 +22,8 @@ public class AltriLiberiStrategy extends DataBeanGetStrategy{
 		PostoSpiaggiaDataBean psdb=new PostoSpiaggiaDataBean();
 		psdb.setStabilimento(rs.getString("stabilimento"));
 		psdb.setNumero(rs.getInt("numero"));
+		psdb.setFila(rs.getInt("fila"));
+		psdb.setNumero_sdraio(rs.getInt("numero_sdraio"));
 		return psdb;
 	}
 
