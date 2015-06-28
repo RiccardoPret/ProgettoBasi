@@ -59,3 +59,6 @@ new_prenota_singolo=}INSERT INTO NoleggioGiornaliero VALUES
 get_by_username=}SELECT *
 FROM Cliente C
 WHERE C.login=?;
+
+all_stabs=}SELECT *
+FROM Stabilimento S;
