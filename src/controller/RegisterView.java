@@ -6,6 +6,11 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import org.apache.commons.mail.DefaultAuthenticator;
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
+
 import util.InsertHelper;
 import model.ClienteDataBean;
 
@@ -37,8 +42,22 @@ public class RegisterView implements Serializable{
 			return user.getLogin()==null?"":"Username o email già esistente!";
 		}
 		else{
+			Email email = new SimpleEmail();
+			email.setHostName("smtp.gmail.com");
+			email.setSmtpPort(587);
+			email.setAuthenticator(new DefaultAuthenticator("pigiadiresort@gmail.com ", "apensa1212"));
+			email.setStartTLSEnabled(true);
+			try {
+				email.setFrom("pigiadiresort@gmail.com ");
+				email.setSubject("Benvenuto in PigiadiResort");
+				email.setMsg("Ecco le sue credenziali:\nLogin: "+user.getLogin()+"\nPassword: "+user.getPassword());
+				email.addTo(user.getEmail());
+				email.send();
+			} catch (EmailException e) {
+				e.printStackTrace();
+			}
 			this.user=new ClienteDataBean();
-			return "Registrazione avvenuta con successo!";
+			return "Registrazione avvenuta con successo! Riceverà una mail con login e password";
 		}
 	}
 	

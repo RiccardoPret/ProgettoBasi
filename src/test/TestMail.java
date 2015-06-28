@@ -13,14 +13,20 @@ public class TestMail {
 		Email email = new SimpleEmail();
 		email.setHostName("smtp.gmail.com");
 		email.setSmtpPort(587);
-		email.setAuthenticator(new DefaultAuthenticator("driveitunivr@gmail.com ", "pifsoldi"));
+		email.setAuthenticator(new DefaultAuthenticator("pigiadiresort@gmail.com ", "pifsoldi"));
 		email.setStartTLSEnabled(true);
-		email.setFrom("driveitunivr@gmail.com ");
-		email.setSubject("Notifica DriveIT");
-		email.setMsg("test Mail");
+		try {
+			email.setFrom("driveitunivr@gmail.com ");
+			email.setSubject("Notifica DriveIT");
+			email.setMsg("test Mail");
 
-		email.addTo(mail);
-		email.send();
+			email.addTo(mail);
+			email.send();
+		} catch (EmailException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println();
 	}
 
 }
