@@ -13,6 +13,10 @@ import model.ClienteDataBean;
 @ViewScoped
 public class RegisterView implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6407552727135983059L;
 	private ClienteDataBean user;
 	
 	public RegisterView(){
@@ -30,6 +34,7 @@ public class RegisterView implements Serializable{
 								, this.user.getDocumento_numero(), this.user.getEmail()
 								, this.user.getLogin(), this.user.getPassword());
 		if(!result){
+			System.out.println(user.getLogin());
 			return user.getLogin()==null?"":"Registrazione fallita!";
 		}
 		else{
