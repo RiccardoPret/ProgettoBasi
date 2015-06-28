@@ -60,14 +60,14 @@
 							</h:dataTable>
 						</h:panelGroup>
 
-						<a href="#" class="button button-alt">Guarda tutti</a>
+						<h:commandButton value="Guarda tutti" class="button button-alt" action="/all_stabilimenti.jsf?faces-redirect=true"></h:commandButton>
 					</div>
 					<div class="tbox2">
 						<h3>Sede</h3>
 						<p>La sede legale della PigiadiSoft si trova in strada Le Grazie, Verona</p>
 						<h3>Contatti</h3>
 						<ul>
-							<li>Email: </li>
+							<li>Email: id671nkl@studenti.univr.it</li>
 							<li>Telefono: </li>
 							<li>Fax: </li>
 						</ul>

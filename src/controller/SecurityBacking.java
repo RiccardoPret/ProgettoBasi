@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 @SessionScoped
 
 public class SecurityBacking implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2809921352461594333L;
 
 	public String invalidateSession() {
 		FacesContext.getCurrentInstance().getExternalContext()

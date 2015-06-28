@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<title>IGNORED</title>
+</head>
+<body>
+	<ui:composition template="/templates/layout.jsf">
+		<ui:define name="windowTitle">Tutti gli stabilimenti</ui:define>
+
+		<ui:define name="menu">
+			<ui:include src="/templates/menu.jsf" />
+		</ui:define>
+
+		<ui:define name="title">#{text.allStabTitle}</ui:define>
+		<ui:define name="subTitle">#{text.allStabSubTitle}</ui:define>
+
+		<ui:define name="content">
+			<h:form>
+				<div id="page">
+					<h:panelGroup layout="block">
+						<h:dataTable value="#{main.allStabilimenti}" var="stab">
+							<h:column>
+								<f:facet name="header">Nome</f:facet>
+								<h:commandLink value="#{stab.nome}"
+									action="#{main.goToDetail(stab.nome)}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header">Località</f:facet>
+		                				#{stab.localita}
+		              				</h:column>
+							<h:column>
+								<f:facet name="header">Via</f:facet>
+		                				#{stab.via}
+		              				</h:column>
+							<h:column>
+								<f:facet name="header">Civico</f:facet>
+		                				#{stab.civico}
+		              				</h:column>
+							<h:column>
+								<f:facet name="header">Città</f:facet>
+		                				#{stab.citta}
+		              				</h:column>
+							<h:column>
+								<f:facet name="header">Telefono</f:facet>
+		                				#{stab.telefono}
+		              				</h:column>
+						</h:dataTable>
+					</h:panelGroup>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</body>
+</html>

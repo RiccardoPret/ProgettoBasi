@@ -23,7 +23,7 @@
 				<div id="page">
 					<p>Torna alla home per poter prenotare il tuo posto spiaggia!</p>
 					
-					<h:commandButton value="Torna alla home" class="button" action="/index.jsf?faces-redirect=true"></h:commandButton>
+					<h:commandButton value="Torna alla home" class="button button-alt" action="/index.jsf?faces-redirect=true"></h:commandButton>
 				</div>
 			</h:form>
 		</ui:define>

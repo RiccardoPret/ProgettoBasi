@@ -12,8 +12,7 @@
 </head>
 <body>
 	<h:form>
-		<p>Non hai i permessi per accedere a tale risorsa</p>
-		<h:commandButton action="#{securityBacking.invalidateSession}" value="Torna alla home" />
+		
 	</h:form>
 	
 </body>
