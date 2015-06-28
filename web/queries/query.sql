@@ -35,7 +35,7 @@ WHERE NG.posto_spiaggia_stabilimento=? AND NG.posto_spiaggia_numero=? AND NG.dat
 
 --altri liberi nello stesso periodo
 --CI VA POSTOSPIAGGIA
-posti_liberi_periodo=}SELECT PS.stabilimento, PS.numero
+posti_liberi_periodo=}SELECT *
 FROM PostoSpiaggia PS
 WHERE NOT EXISTS(
 					SELECT 1
