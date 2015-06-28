@@ -18,6 +18,9 @@
 			<ui:include src="/templates/menu.jsf" />
 		</ui:define>
 
+		<ui:define name="title">#{text.bannerTitle}</ui:define>
+		<ui:define name="subTitle">#{text.bannerSubTitle}</ui:define>
+
 		<ui:define name="content">
 			<h:form>
 				<div id="three-column" class="container">

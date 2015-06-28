@@ -7,7 +7,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-	<title>IGNORATO</title>
+	<title>IGNORED</title>
 </h:head>
 
 <h:body>
@@ -17,6 +17,9 @@
 		<ui:define name="menu">
 			<ui:include src="/templates/menu.jsf" />
 		</ui:define>
+
+		<ui:define name="title">#{text.signupTitle}</ui:define>
+		<ui:define name="subTitle">#{text.signupSubTitle}</ui:define>
 
 		<ui:define name="content">
 

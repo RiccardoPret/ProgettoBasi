@@ -5,7 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>Client Page</h:head>
+<h:head>IGNORED</h:head>
 <h:body>
 
 	<ui:composition template="/templates/layout.jsf">
@@ -15,10 +15,12 @@
 			<ui:include src="/templates/menu.jsf" />
 		</ui:define>
 
+		<ui:define name="title">#{text.signinTitle} #{securityBacking.username}</ui:define>
+		<ui:define name="subTitle">#{text.signinSubTitle}</ui:define>
+
 		<ui:define name="content">
 			<h:form>
 				<div id="page">
-					<p>Bentornato #{securityBacking.username}</p><br />
 					<p>Torna alla home per poter prenotare il tuo posto spiaggia!</p>
 					
 					<h:commandButton value="Torna alla home" class="button" action="/index.jsf?faces-redirect=true"></h:commandButton>

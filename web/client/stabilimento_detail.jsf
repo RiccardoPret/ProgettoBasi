@@ -5,7 +5,7 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets">
-<h:head>Client Page</h:head>
+<h:head>IGNORED</h:head>
 <h:body>
 
 	<ui:composition template="/templates/layout.jsf">
@@ -14,6 +14,9 @@
 		<ui:define name="menu">
 			<ui:include src="/templates/menu.jsf" />
 		</ui:define>
+		
+		<ui:define name="title">#{text.stabilimentoTitle}</ui:define>
+		<ui:define name="subTitle">#{stab_detail.stab.nome}</ui:define>
 
 		<ui:define name="content">
 			<h:form>
@@ -36,9 +39,9 @@
 							#{stab_detail.stab.isHa_volley()? 'Si': 'No'}</li>
 						<li><b>Campo di bocce</b>: #{stab_detail.stab.isHa_bocce()? 'Si': 'No'}</li>
 
-						<li>Orario apertura ristorante: <h:outputLabel value="#{stab_detail.stab.h_apertura}"
+						<li><b>Orario apertura ristorante</b>: <h:outputLabel value="#{stab_detail.stab.h_apertura}"
 								rendered="#{stab_detail.stab.isHa_ristorante()}" /></li>
-						<li>Orario chiusura ristorante: <h:outputLabel value="#{stab_detail.stab.h_chiusura}"
+						<li><b>Orario chiusura ristorante</b>: <h:outputLabel value="#{stab_detail.stab.h_chiusura}"
 								rendered="#{stab_detail.stab.isHa_ristorante()}" /></li>
 						<li><b>Numero posti spiaggia</b> #{stab_detail.numeroPosti}</li>
 					</ul>

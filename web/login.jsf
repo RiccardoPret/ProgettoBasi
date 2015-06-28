@@ -15,6 +15,9 @@
 		<ui:define name="menu">
 			<ui:include src="/templates/menu.jsf"/>
 		</ui:define>
+		
+		<ui:define name="title">#{text.loginTitle}</ui:define>
+		<ui:define name="subTitle">#{text.loginSubTitle}</ui:define>
 
 		<ui:define name="content">
 		<div id="page">

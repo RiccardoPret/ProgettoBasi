@@ -16,7 +16,7 @@
 		<div id="header" class="container">
 			<div id="logo">
 				<h1>
-					<a href="#">PigiadiSoft</a>
+					<a href="/index.jsf?faces-redirect=true">PigiadiSoft</a>
 				</h1>
 			</div>
 			<div id="menu">
@@ -26,8 +26,8 @@
 		<div id="banner-wrapper">
 			<div id="banner" class="container">
 				<div class="title">
-					<h2>#{text.bannerTitle}</h2>
-					<span class="byline">#{text.bannerSubTitle}</span>
+					<h2><ui:insert name="title" /></h2>
+					<span class="byline"><ui:insert name="subTitle" /></span>
 				</div>
 				
 			</div>
