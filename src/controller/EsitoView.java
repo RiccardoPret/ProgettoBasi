@@ -86,7 +86,7 @@ public class EsitoView implements Serializable{
 								, new java.sql.Date(data_fine.getTime()));
 		
 		try {
-			this.esito=cls.getSelectedBeans().isEmpty();
+			this.esito=cls.getSelectedBeans().isEmpty() && cls.postospiaggiaExists(posto);
 			if(this.esito){
 				InsertHelper.insertPrenotazione(cliente, data_inizio, data_fine, stabName, posto);
 				this.alternative=new ArrayList<PostoSpiaggiaDataBean>(0);

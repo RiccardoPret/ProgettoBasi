@@ -11,6 +11,8 @@ import model.NoleggioGiornalieroDataBean;
 
 public class CheckLiberoStrategy extends DataBeanGetStrategy {
 
+	private String stabname;
+	
 	public CheckLiberoStrategy(String stabname,int numPosto,Date startDate,Date endDate) {
 		List<Object> pars=new ArrayList<Object>(1);
 		pars.add(stabname);
@@ -19,6 +21,7 @@ public class CheckLiberoStrategy extends DataBeanGetStrategy {
 		pars.add(endDate);
 		this.queryName="check_prenotabile";
 		this.params=pars;
+		this.stabname=stabname;
 	}
 	
 	//torno null perché tanto mi interessa solo che ritorni righe o no
@@ -27,4 +30,9 @@ public class CheckLiberoStrategy extends DataBeanGetStrategy {
 		return null;
 	}
 
+	public boolean postospiaggiaExists(int numero) throws SQLException{
+		StabilimentoDetailStrategy sds=new StabilimentoDetailStrategy(stabname);
+		int numposti=sds.getNumeroPosti();
+		return numero<=numposti;
+	}
 }
