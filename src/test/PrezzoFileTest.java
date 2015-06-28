@@ -1,7 +1,5 @@
 package test;
 
-import static org.junit.Assert.*;
-
 import java.sql.SQLException;
 
 import model.DataBean;
@@ -9,7 +7,6 @@ import model.DataBean;
 import org.junit.Test;
 
 import util.PrezzoFileStrategy;
-import util.StabilimentiCorrentiStrategy;
 
 public class PrezzoFileTest {
 

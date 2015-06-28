@@ -1,9 +1,6 @@
 package test;
 
-import static org.junit.Assert.*;
-
 import java.sql.Date;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import model.DataBean;

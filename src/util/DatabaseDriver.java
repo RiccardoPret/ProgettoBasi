@@ -3,15 +3,9 @@ package util;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import login.MyLoginModule;
-
-import org.postgresql.geometric.PGpoint;
 
 
 /*
@@ -35,8 +29,8 @@ public class DatabaseDriver {
 	}
 
 	/*
-	 * L'utene ha la possibilità di aprirsi e chiudersi la connessione a
-	 * piacere. In questo modo se deve eseguire più query non deve continuamente
+	 * L'utene ha la possibilitï¿½ di aprirsi e chiudersi la connessione a
+	 * piacere. In questo modo se deve eseguire piï¿½ query non deve continuamente
 	 * aprire e chiudere la connessione. Questo metodo, apre la connessione e poi la ritorna
 	 */
 	public void openConnection() {

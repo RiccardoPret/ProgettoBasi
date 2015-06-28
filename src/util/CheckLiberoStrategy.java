@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.DataBean;
-import model.NoleggioGiornalieroDataBean;
 
 public class CheckLiberoStrategy extends DataBeanGetStrategy {
 
@@ -24,7 +23,7 @@ public class CheckLiberoStrategy extends DataBeanGetStrategy {
 		this.stabname=stabname;
 	}
 	
-	//torno null perché tanto mi interessa solo che ritorni righe o no
+	//torno null perchï¿½ tanto mi interessa solo che ritorni righe o no
 	@Override
 	protected DataBean buildDataBean(ResultSet rs) throws SQLException {
 		return null;

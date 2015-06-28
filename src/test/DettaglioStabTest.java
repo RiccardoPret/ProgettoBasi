@@ -1,7 +1,5 @@
 package test;
 
-import static org.junit.Assert.*;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +10,6 @@ import org.junit.Test;
 
 import util.DatabaseDriver;
 import util.Query;
-import util.StabilimentiCorrentiStrategy;
 import util.StabilimentoDetailStrategy;
 
 public class DettaglioStabTest {

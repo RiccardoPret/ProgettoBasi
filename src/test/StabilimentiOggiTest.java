@@ -1,7 +1,5 @@
 package test;
 
-import static org.junit.Assert.*;
-
 import java.sql.SQLException;
 
 import model.DataBean;

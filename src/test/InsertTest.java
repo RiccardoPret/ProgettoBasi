@@ -1,10 +1,8 @@
 package test;
 
-import static org.junit.Assert.*;
-
-import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.junit.Test;
 

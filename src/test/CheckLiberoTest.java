@@ -1,25 +1,20 @@
 package test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.Date;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-
-import model.DataBean;
 
 import org.junit.Test;
 
 import util.CheckLiberoStrategy;
-import util.StabilimentiCorrentiStrategy;
 
 public class CheckLiberoTest {
 
-	@SuppressWarnings("deprecation")
 	@Test
 	public void test() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-		//secondo gli insert di default questo è libero
+		//secondo gli insert di default questo Ã¨ libero
 		CheckLiberoStrategy strat=null;
 				
 		try {
@@ -31,7 +26,7 @@ public class CheckLiberoTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		//secondo gli insert di default questo è occupato
+		//secondo gli insert di default questo Ã¨ occupato
 		
 		try {
 			strat=new CheckLiberoStrategy("Bagno Maria", 1
