@@ -25,6 +25,11 @@ import util.InsertHelper;
 @SessionScoped
 public class EsitoView implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4630450511530386684L;
+
 	@ManagedProperty(value = "#{securityBacking}")
 	private SecurityBacking securityBacking;
 	

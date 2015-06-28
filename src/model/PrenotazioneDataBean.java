@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 import java.sql.Date;
 
 public class PrenotazioneDataBean extends DataBean{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6008075457547054324L;
 	private int id,cliente;
 	private Date data_inizio,data_fine, tipo_pagamento;
 	private BigDecimal importo;

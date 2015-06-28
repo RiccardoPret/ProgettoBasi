@@ -3,6 +3,10 @@ package model;
 import java.sql.Date;
 
 public class NoleggioGiornalieroDataBean extends DataBean{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6969454770198642394L;
 	private Date data;
 	private int posto_spiaggia_numero, prenotazione;
 	private String posto_spiaggia_stabilimento;

@@ -3,6 +3,10 @@ package model;
 import java.math.BigDecimal;
 
 public class PrezzoFilaDataBean extends DataBean{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6701970490431967098L;
 	private String periodo_nome;
 	private int fila;
 	private BigDecimal prezzo;

@@ -20,6 +20,10 @@ import util.StabilimentoDetailStrategy;
 @SessionScoped
 public class StabilimentoView implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8265962058594555799L;
 	private StabilimentoDataBean stab;
 	private int numeroPosti;
 	private List<PrezzoFilaDataBean> prezzi;
