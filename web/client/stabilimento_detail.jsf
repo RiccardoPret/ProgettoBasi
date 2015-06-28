@@ -74,7 +74,10 @@
 							<td><h:inputText value="#{stab_detail.data_inizio}"
 									id="data_i" 
 									requiredMessage="Inserire data iniziale"
-									required="true"/>
+									converterMessage="Formato data non corretto. Esempio: 2015-05-30"
+									required="true">
+									<f:convertDateTime pattern="yyyy-MM-dd"/>
+								</h:inputText>
 							</td>
 						</tr>
 						<tr>
@@ -82,7 +85,10 @@
 							<td><h:inputText value="#{stab_detail.data_fine}"
 									id="data_f" 
 									requiredMessage="Inserire data finale"
-									required="true"/>
+									converterMessage="Formato data non corretto. Esempio: 2015-05-30"
+									required="true">
+									<f:convertDateTime pattern="yyyy-MM-dd"/>
+								</h:inputText>
 							</td>
 						</tr>
 						<tr>
@@ -93,7 +99,7 @@
 									requiredMessage="Inserire posto spiaggia"
 									validatorMessage="Numero posto spiaggia non corretto"
 									required="true">
-									<f:validateLongRange minimum="0" />
+									<f:validateLongRange minimum="1" />
 								</h:inputText>
 							</td>
 						</tr>

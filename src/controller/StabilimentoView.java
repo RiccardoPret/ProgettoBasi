@@ -28,7 +28,7 @@ public class StabilimentoView implements Serializable{
 	private int numeroPosti;
 	private List<PrezzoFilaDataBean> prezzi;
 	
-	private String data_inizio,data_fine;
+	private java.util.Date data_inizio,data_fine;
 	private int postoDaPrenotare;
 	
 	@ManagedProperty(value="#{esito}")
@@ -109,19 +109,19 @@ public class StabilimentoView implements Serializable{
 		this.esito = esito;
 	}
 
-	public String getData_inizio() {
+	public java.util.Date getData_inizio() {
 		return data_inizio;
 	}
 
-	public void setData_inizio(String data_inizio) {
+	public void setData_inizio(java.util.Date data_inizio) {
 		this.data_inizio = data_inizio;
 	}
 
-	public String getData_fine() {
+	public java.util.Date getData_fine() {
 		return data_fine;
 	}
 
-	public void setData_fine(String data_fine) {
+	public void setData_fine(java.util.Date data_fine) {
 		this.data_fine = data_fine;
 	}
 
