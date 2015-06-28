@@ -18,10 +18,36 @@
 		<ui:define name="content">
 			<h:form>
 				<div id="page">
-					<p>Bentornato #{securityBacking.username}</p><br />
-					<p>Torna alla home per poter prenotare il tuo posto spiaggia!</p>
-					
-					<h:commandButton value="Torna alla home" class="button" action="/index.jsf?faces-redirect=true"></h:commandButton>
+					#{stab_detail.esito.esito? 'Prenotazione avvenuta con successo': 'Impossibile effettuare la prenotazione' }
+
+					<div id="dettaglio_stab">
+						<h:panelGroup layout="block"
+							rendered="#{!stab_detail.esito.esito}">
+							<h:dataTable value="#{stab_detail.esito.alternative}" var="alternativa">
+								<h:column>
+									<f:facet name="header">Posto spiaggia</f:facet>
+										#{alternativa.numero}
+									</h:column>
+								<h:column>
+									<f:facet name="header">Fila</f:facet>
+		                				#{alternativa.fila}
+		              				</h:column>
+								<h:column>
+									<f:facet name="header">Numero sdraio</f:facet>
+		                				#{alternativa.numero_sdraio}
+		              				</h:column>
+								<h:column>
+									<f:facet name="header">Stabilimento</f:facet>
+		                				#{alternativa.stabilimento}
+		              				</h:column>
+								<h:column>
+									<f:facet name="header"></f:facet>
+									<h:commandLink value="Prenota"
+										action="#{stab_detail.esito.prenotaSu(alternativa)}" />
+								</h:column>
+							</h:dataTable>
+						</h:panelGroup>
+					</div>
 				</div>
 			</h:form>
 		</ui:define>
