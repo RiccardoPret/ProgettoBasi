@@ -5,6 +5,10 @@ import java.sql.Time;
 
 public class StabilimentoDataBean extends DataBean{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9093044109155664671L;
 	private String nome, localita,via,civico,citta,responsabile,telefono;
 	private Date data_apertura,data_chiusura;
 	private boolean ha_salagiochi,ha_volley,ha_bocce,ha_ristorante;

@@ -1,6 +1,10 @@
 package model;
 
 public class PostoSpiaggiaDataBean extends DataBean{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -745498242897486256L;
 	private int numero,fila,numero_sdraio;
 	private String stabilimento;
 	

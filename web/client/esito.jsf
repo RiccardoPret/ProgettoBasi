@@ -43,7 +43,7 @@
 								<h:column>
 									<f:facet name="header"></f:facet>
 									<h:commandLink value="Prenota"
-										action="#{stab_detail.esito.prenotaSu(alternativa)}" />
+										action="#{esito.prenotaSu(alternativa)}" />
 								</h:column>
 							</h:dataTable>
 						</h:panelGroup>

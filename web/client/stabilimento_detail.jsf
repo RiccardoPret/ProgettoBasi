@@ -36,13 +36,15 @@
 							#{stab_detail.stab.isHa_volley()? 'Si': 'No'}</li>
 						<li><b>Campo di bocce</b>: #{stab_detail.stab.isHa_bocce()? 'Si': 'No'}</li>
 
-						<li><h:outputLabel value="#{stab_detail.stab.h_apertura}"
+						<li>Orario apertura ristorante: <h:outputLabel value="#{stab_detail.stab.h_apertura}"
 								rendered="#{stab_detail.stab.isHa_ristorante()}" /></li>
-						<li><h:outputLabel value="#{stab_detail.stab.h_chiusura}"
+						<li>Orario chiusura ristorante: <h:outputLabel value="#{stab_detail.stab.h_chiusura}"
 								rendered="#{stab_detail.stab.isHa_ristorante()}" /></li>
 						<li><b>Numero posti spiaggia</b> #{stab_detail.numeroPosti}</li>
 					</ul>
 				</div>
+				</h:form>
+				<h:form>
 				<div id="dettaglio_stab">
 					<h3>Elenco prezzi dei posti spiaggia</h3>
 					<h:panelGroup layout="block">

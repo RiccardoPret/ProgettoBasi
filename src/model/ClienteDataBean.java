@@ -1,6 +1,11 @@
 package model;
 
 public class ClienteDataBean extends DataBean{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7722372707142073005L;
+
 	private String nome,cognome,residenza,documento_tipo,documento_ente,documento_numero,email,login,password;
 
 	int id;
